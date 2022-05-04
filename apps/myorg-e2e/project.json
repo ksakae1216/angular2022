@@ -1,0 +1,28 @@
+{
+  "root": "apps/myorg-e2e",
+  "sourceRoot": "apps/myorg-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/myorg-e2e/cypress.json",
+        "devServerTarget": "myorg:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "myorg:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/myorg-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["myorg"]
+}

@@ -52,6 +52,7 @@
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.1",
     "nx": "14.0.5",
+    "nx-ng-esbuild": "^0.5.3",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.2",

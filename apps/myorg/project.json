@@ -82,6 +82,18 @@
         "jestConfig": "apps/myorg/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "esbuild": {
+      "executor": "nx-ng-esbuild:esbuild",
+      "options": {
+        "entryPoints": ["apps/myorg/src/main.ts"],
+        "outdir": "dist/apps/myorg",
+        "index": "apps/myorg/src/index.html",
+        "assets": ["apps/myorg/src/favicon.ico", "apps/myorg/src/assets"],
+        "styles": ["apps/myorg/src/styles.scss"],
+        "scripts": [],
+        "tsconfig": "apps/myorg/tsconfig.app.json"
+      }
     }
   },
   "tags": []

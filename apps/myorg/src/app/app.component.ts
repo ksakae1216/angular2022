@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'angular2022-root',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'app-my-org',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

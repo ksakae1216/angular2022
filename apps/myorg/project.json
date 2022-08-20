@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/myorg",
   "sourceRoot": "apps/myorg/src",
-  "prefix": "angular2022",
+  "prefix": "myorg",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

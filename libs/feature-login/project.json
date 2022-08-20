@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/feature-login",
   "sourceRoot": "libs/feature-login/src",
-  "prefix": "angular2022",
+  "prefix": "myorg",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",

@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('@angular2022/feature-login').then((m) => m.FeatureLoginModule),
+      import('@myorg/feature-login').then((m) => m.FeatureLoginModule),
   },
   {
     path: '',

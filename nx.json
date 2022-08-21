@@ -1,5 +1,5 @@
 {
-  "npmScope": "angular2022",
+  "npmScope": "myorg",
   "affected": {
     "defaultBase": "main"
   },

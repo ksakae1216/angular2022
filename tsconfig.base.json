@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular2022/feature-login": ["libs/feature-login/src/index.ts"]
+      "@myorg/feature-login": ["libs/feature-login/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

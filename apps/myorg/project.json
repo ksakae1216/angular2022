@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/myorg",
         "index": "apps/myorg/src/index.html",
@@ -14,8 +16,14 @@
         "polyfills": "apps/myorg/src/polyfills.ts",
         "tsConfig": "apps/myorg/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/myorg/src/favicon.ico", "apps/myorg/src/assets"],
-        "styles": ["apps/myorg/src/styles.scss"],
+        "assets": [
+          "apps/myorg/src/favicon.ico",
+          "apps/myorg/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+          "apps/myorg/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -72,12 +80,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/myorg/**/*.ts", "apps/myorg/**/*.html"]
+        "lintFilePatterns": [
+          "apps/myorg/**/*.ts",
+          "apps/myorg/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/myorg"],
+      "outputs": [
+        "coverage/apps/myorg"
+      ],
       "options": {
         "jestConfig": "apps/myorg/jest.config.ts",
         "passWithNoTests": true
@@ -86,11 +99,18 @@
     "esbuild": {
       "executor": "nx-ng-esbuild:esbuild",
       "options": {
-        "entryPoints": ["apps/myorg/src/main.ts"],
+        "entryPoints": [
+          "apps/myorg/src/main.ts"
+        ],
         "outdir": "dist/apps/myorg",
         "index": "apps/myorg/src/index.html",
-        "assets": ["apps/myorg/src/favicon.ico", "apps/myorg/src/assets"],
-        "styles": ["apps/myorg/src/styles.scss"],
+        "assets": [
+          "apps/myorg/src/favicon.ico",
+          "apps/myorg/src/assets"
+        ],
+        "styles": [
+          "apps/myorg/src/styles.scss"
+        ],
         "scripts": [],
         "tsconfig": "apps/myorg/tsconfig.app.json"
       }

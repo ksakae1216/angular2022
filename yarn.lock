@@ -287,7 +287,7 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-13.3.11.tgz#4ae693bb4b15dc1c20eb4411874357c27cdb39a4"
   integrity sha512-EDw8L0RKrRYUYWB2P0xS1WRazYvv5gOguX+IwPZlCpR95QLQPTTpmNaqvnYjmFlvQjGHJYc8wqtJJIIMiL6FSA==
 
-"@angular/material@^13.3.9":
+"@angular/material@^13.3.0":
   version "13.3.9"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.3.9.tgz#efd8ab5800b654df01e36426391d31531e412425"
   integrity sha512-FU8lcMgo+AL8ckd27B4V097ZPoIZNRHiCe3wpgkImT1qC0YwcyXZVn0MqQTTFSdC9a/aI8wPm3AbTClJEVw5Vw==

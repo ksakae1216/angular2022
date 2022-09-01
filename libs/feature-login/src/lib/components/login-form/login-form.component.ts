@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./login-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginFormComponent {}
+export class LoginFormComponent {
+  showPassword = false;
+
+  toggleShowPassword(): void {
+    this.showPassword = !this.showPassword;
+  }
+}

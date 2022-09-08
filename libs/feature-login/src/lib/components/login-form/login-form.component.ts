@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent {
-  showPassword = false;
+  protected showPassword = false;
 
   toggleShowPassword(): void {
     this.showPassword = !this.showPassword;

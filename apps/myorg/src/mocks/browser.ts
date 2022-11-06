@@ -1,19 +1,7 @@
 import { setupWorker, rest } from 'msw';
+import { hundlers } from './hundlers';
 
-export const mocks = [
-  rest.get('https://hoge.com/users/:user', (req, res, ctx) => {
-    const { user } = req.params;
-
-    return res(
-      ctx.status(200),
-      ctx.json({
-        name: `mocked-${user}`,
-      })
-    );
-  }),
-];
-
-const worker = setupWorker(...mocks);
+const worker = setupWorker(...hundlers);
 worker.start();
 
 export { worker, rest };

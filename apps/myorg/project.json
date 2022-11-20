@@ -20,7 +20,7 @@
           "apps/myorg/src/mockServiceWorker.js"
         ],
         "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
           "apps/myorg/src/styles.scss"
         ],
         "scripts": []

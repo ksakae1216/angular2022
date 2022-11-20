@@ -1,20 +1,35 @@
-<div class="bg-gradient-to-r from-green-400 to-blue-500 h-screen flex flex-col space-y-10 justify-center items-center">
-  <div class="bg-white w-96 shadow-xl rounded p-5">
-    <h1 class="text-3xl font-medium">Welcome</h1>
-    <p class="text-sm">This is login page</p>
-
-    <form class="space-y-5 mt-5">
-      <input matInput type="text" class="w-full h-12 border border-gray-800 rounded px-3" placeholder="Email" autofocus/>
-      <div class="w-full flex items-center border border-gray-800 rounded px-3">
-        <input [type]="showPassword ? 'text' : 'password'" class="w-4/5 h-12" placeholder="Password" />
-        <span (click)="toggleShowPassword()" class="text-blue-700 hover:bg-blue-400 rounded-md px-3">Show</span>
-      </div>
-
-      <div class="">
-        <a href="#!" class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Forgot Password ?</a>
-      </div>
-
-      <button class="text-center w-full bg-blue-900 rounded-md text-white py-3 font-medium">Login</button>
-    </form>
+<mat-card class="m-auto max-w-2xl w-auto">
+  <div class="my-10">
+    <img
+      mat-card-avatar
+      mat-card-lg-image
+      class="m-auto"
+      src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+      alt=""
+    />
   </div>
-</div>
+  <mat-card-title class="text-center p-6">ログイン</mat-card-title>
+  <form>
+    <div class="flex flex-col items-center">
+      <mat-form-field appearance="outline" class="w-60">
+        <mat-label>ログインIDを入力</mat-label>
+        <input matInput placeholder="ログインID" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-60">
+        <mat-label>パスワードを入力</mat-label>
+        <input matInput placeholder="パスワード" type="password" />
+        <mat-icon matSuffix>visibility_off</mat-icon>
+      </mat-form-field>
+      <div class="mt-5">
+        <button
+          mat-raised-button
+          color="primary"
+          class="w-60"
+          (click)="login()"
+        >
+          ログイン
+        </button>
+      </div>
+    </div>
+  </form>
+</mat-card>

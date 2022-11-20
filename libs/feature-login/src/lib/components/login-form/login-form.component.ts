@@ -12,4 +12,8 @@ export class LoginFormComponent {
   toggleShowPassword(): void {
     this.showPassword = !this.showPassword;
   }
+
+  login(): void {
+    console.log('# logined');
+  }
 }

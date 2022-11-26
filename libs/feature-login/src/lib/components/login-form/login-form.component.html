@@ -9,22 +9,39 @@
     />
   </div>
   <mat-card-title class="text-center p-6">ログイン</mat-card-title>
-  <form>
+  <form [formGroup]="loginFormGroup">
     <div class="flex flex-col items-center">
-      <mat-form-field appearance="outline" class="w-60">
+      <mat-form-field appearance="outline" class="w-80 my-6">
         <mat-label>ログインIDを入力</mat-label>
-        <input matInput placeholder="ログインID" />
+        <input
+          matInput
+          placeholder="ログインID"
+          formControlName="loginId"
+          autofocus
+        />
+        <mat-error *ngIf="loginIdForm?.invalid">{{
+          loginIdErrorMessage
+        }}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="w-60">
+      <mat-form-field appearance="outline" class="w-80 my-6">
         <mat-label>パスワードを入力</mat-label>
-        <input matInput placeholder="パスワード" type="password" />
+        <input
+          matInput
+          placeholder="パスワード"
+          type="password"
+          formControlName="password"
+        />
         <mat-icon matSuffix>visibility_off</mat-icon>
+        <mat-error *ngIf="passwordForm?.invalid">{{
+          passwordErrorMessage
+        }}</mat-error>
       </mat-form-field>
       <div class="mt-5">
         <button
           mat-raised-button
           color="primary"
           class="w-60"
+          [disabled]="!loginFormGroup.valid"
           (click)="login()"
         >
           ログイン

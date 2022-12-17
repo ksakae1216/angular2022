@@ -15,6 +15,8 @@
         <mat-label>ログインIDを入力</mat-label>
         <input
           matInput
+          type="text"
+          aria-label="ログインID"
           placeholder="ログインID"
           formControlName="loginId"
           autofocus
@@ -27,9 +29,11 @@
         <mat-label>パスワードを入力</mat-label>
         <input
           matInput
-          placeholder="パスワード"
           type="password"
+          aria-label="パスワード"
+          placeholder="パスワード"
           formControlName="password"
+          data-testid="password"
         />
         <mat-icon matSuffix>visibility_off</mat-icon>
         <mat-error *ngIf="passwordForm?.invalid">{{

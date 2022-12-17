@@ -34,7 +34,7 @@ export class LoginFormComponent {
       this.loginIdForm.hasError('minlength') ||
       this.loginIdForm.hasError('maxlength')
     ) {
-      return 'ログインは5文字以上、10文字以下で入力してください';
+      return 'ログインIDは5文字以上、10文字以下で入力してください';
     }
 
     return '';

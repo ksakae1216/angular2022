@@ -1,4 +1,5 @@
 {
+  "name": "myorg",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/myorg/src",
@@ -84,7 +85,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/myorg"],
+      "outputs": ["{workspaceRoot}/coverage/apps/myorg"],
       "options": {
         "jestConfig": "apps/myorg/jest.config.ts",
         "passWithNoTests": true

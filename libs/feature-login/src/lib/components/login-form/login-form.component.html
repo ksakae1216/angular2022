@@ -19,6 +19,7 @@
           aria-label="ログインID"
           placeholder="ログインID"
           formControlName="loginId"
+          name="loginId"
           autofocus
         />
         <mat-error *ngIf="loginIdForm?.invalid">{{
@@ -33,7 +34,9 @@
           aria-label="パスワード"
           placeholder="パスワード"
           formControlName="password"
+          name="password"
           data-testid="password"
+          data-cy="password"
         />
         <mat-icon matSuffix>visibility_off</mat-icon>
         <mat-error *ngIf="passwordForm?.invalid">{{

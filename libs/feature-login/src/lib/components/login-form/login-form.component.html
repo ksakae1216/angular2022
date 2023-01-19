@@ -28,7 +28,7 @@
       <mat-form-field appearance="outline" class="w-80 my-6">
         <input
           matInput
-          type="password"
+          type="{{ passwordType }}"
           aria-label="パスワード"
           placeholder="パスワード"
           formControlName="password"
@@ -36,7 +36,7 @@
           data-testid="password"
           data-cy="password"
         />
-        <mat-icon matSuffix>visibility_off</mat-icon>
+        <mat-icon matSuffix (click)="toggleShowPassword()">{{ visibility_icon }}</mat-icon>
         <mat-error *ngIf="passwordForm?.invalid">{{
           passwordErrorMessage
         }}</mat-error>

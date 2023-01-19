@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'myorg-login-form',
@@ -10,6 +9,8 @@ import { Validators } from '@angular/forms';
 })
 export class LoginFormComponent {
   protected showPassword = false;
+  protected visibility_icon = 'visibility_off';
+  protected passwordType = 'password';
 
   protected loginFormGroup = new FormGroup({
     loginId: new FormControl('', [
@@ -54,6 +55,8 @@ export class LoginFormComponent {
 
   toggleShowPassword(): void {
     this.showPassword = !this.showPassword;
+    this.visibility_icon = this.showPassword ? 'visibility_on' : 'visibility_off';
+    this.passwordType = this.showPassword ? 'text' : 'password';
   }
 
   login(): void {

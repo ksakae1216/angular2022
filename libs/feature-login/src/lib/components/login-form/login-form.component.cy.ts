@@ -9,13 +9,38 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from "./login-form.component";
 
 describe('LoginFormComponent', () => {
-  it('should display required error message', () => {
-    setup();
+  describe('LoginId error check', () => {
+    it('should display required error message', () => {
+      setup();
 
-    cy.get('input[name=loginId]').click();
-    cy.get('[data-cy="password"]').click({force: true});
+      cy.get('input[name=loginId]').click().blur();
 
-    cy.get('mat-error').should('contain', 'ログインIDを入力してください');
+      cy.get('mat-error').should('contain', 'ログインIDを入力してください');
+    });
+
+    it('should display minLength error message', () => {
+      setup();
+
+      cy.get('input[name=loginId]').click().type('abc').blur();
+      cy.get('mat-error').should('contain', 'ログインIDは5文字以上、10文字以下で入力してください');
+    });
+
+    it('should display maxLength error message', () => {
+      setup();
+
+      cy.get('input[name=loginId]').click().type('abcdeabcdeabcde').blur();
+      cy.get('mat-error').should('contain', 'ログインIDは5文字以上、10文字以下で入力してください');
+    });
+  });
+
+  describe('Password error check', () => {
+    it('should display maxLength error message', () => {
+      setup();
+
+      cy.get('input[name=loginId]').click().type('abcde');
+      cy.get('[data-cy="password"]').click().blur();
+      cy.get('mat-error').should('contain', 'パスワードを入力してください');
+    });
   });
 });
 

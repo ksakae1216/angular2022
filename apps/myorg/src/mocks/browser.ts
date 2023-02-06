@@ -1,4 +1,4 @@
-import { setupWorker, rest } from 'msw';
+import { rest, setupWorker } from 'msw';
 import { hundlers } from './hundlers';
 
 const worker = setupWorker(...hundlers);

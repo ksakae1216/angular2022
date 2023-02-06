@@ -6,12 +6,12 @@ export const loginApiMocks = [
 
     let status = 200;
 
-    if (body.loginId !== 'test' || body.password !== 'Password123') {
+    if (body.loginId !== 'test' || body.password !== 'Password1') {
       status = 400;
     }
 
     return res(
-      ctx.delay(1000),
+      ctx.delay(2000),
       ctx.status(status),
       ctx.json({
         accessToken: '123456abcde',

@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "feature-login": "libs/feature-login",
+    "feature-top": "libs/feature-top",
     "myorg": "apps/myorg",
     "myorg-e2e": "apps/myorg-e2e"
   }

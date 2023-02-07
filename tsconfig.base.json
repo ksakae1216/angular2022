@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myorg/feature-login": ["libs/feature-login/src/index.ts"]
+      "@myorg/feature-login": ["libs/feature-login/src/index.ts"],
+      "@myorg/feature-top": ["libs/feature-top/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

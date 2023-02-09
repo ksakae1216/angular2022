@@ -11,6 +11,7 @@ import { components } from './components';
 import { containers } from './containers';
 import { pages } from './pages';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LoginContainerStore } from './containers/login-container/login-container.store';
 
 @NgModule({
   imports: [
@@ -25,5 +26,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
   ],
   declarations: [...components, ...containers, ...pages],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [LoginContainerStore],
 })
 export class FeatureLoginModule {}

@@ -6,7 +6,7 @@ export const loginApiMocks = [
 
     let status = 200;
 
-    if (body.loginId !== 'test' || body.password !== 'Password1') {
+    if (body.loginId !== 'test1' || body.password !== 'Password1') {
       status = 400;
     }
 

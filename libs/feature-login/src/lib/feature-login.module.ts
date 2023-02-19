@@ -6,9 +6,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { components } from './components';
 import { containers } from './containers';
+import { LoginContainerStore } from './containers/login-container/login-container.store';
 import { pages } from './pages';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
@@ -21,9 +23,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
   ],
   declarations: [...components, ...containers, ...pages],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [LoginContainerStore],
 })
 export class FeatureLoginModule {}

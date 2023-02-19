@@ -9,8 +9,13 @@
     />
   </div>
   <mat-card-title class="text-center p-6">ログイン</mat-card-title>
-  <form [formGroup]="loginFormGroup">
+  <form [formGroup]="loginFormGroup" (submit)="submit()">
     <div class="flex flex-col items-center w-96">
+      <ng-container *ngIf="isLoginError"
+        ><span class="!text-[#f44336]"
+          >ログインに失敗しました。</span
+        ></ng-container
+      >
       <mat-form-field appearance="outline" class="w-80 my-6">
         <input
           matInput
@@ -33,10 +38,11 @@
           placeholder="パスワード"
           formControlName="password"
           name="password"
-          data-testid="password"
           data-cy="password"
         />
-        <mat-icon matSuffix (click)="toggleShowPassword()">{{ visibility_icon }}</mat-icon>
+        <mat-icon matSuffix (click)="toggleShowPassword()">{{
+          visibility_icon
+        }}</mat-icon>
         <mat-error *ngIf="passwordForm?.invalid">{{
           passwordErrorMessage
         }}</mat-error>
@@ -46,10 +52,13 @@
           mat-raised-button
           color="primary"
           class="w-80 !h-14"
-          [disabled]="!loginFormGroup.valid"
-          (click)="login()"
+          [disabled]="disabled"
+          type="submit"
         >
-          ログイン
+          <div class="flex">
+            ログイン
+            <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+          </div>
         </button>
       </div>
     </div>

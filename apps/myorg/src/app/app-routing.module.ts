@@ -9,6 +9,11 @@ const routes: Routes = [
       import('@myorg/feature-login').then((m) => m.FeatureLoginModule),
   },
   {
+    path: 'top',
+    loadComponent: () =>
+      import('@myorg/feature-top').then((m) => m.FeatureTopComponent),
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',

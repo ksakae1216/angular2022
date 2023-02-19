@@ -1,13 +1,24 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RequestStatus } from '@myorg/shared/data-access';
 
 @Component({
   selector: 'myorg-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss'],
+  styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent {
+  @Input() requestStatus: RequestStatus = RequestStatus.Idle;
+
+  @Output() login = new EventEmitter<{ loginId: string; password: string }>();
+
   protected showPassword = false;
   protected visibility_icon = 'visibility_off';
   protected passwordType = 'password';
@@ -23,6 +34,10 @@ export class LoginFormComponent {
 
   protected loginIdForm = this.loginFormGroup.get('loginId');
   protected passwordForm = this.loginFormGroup.get('password');
+
+  get isLoginError(): boolean {
+    return this.requestStatus === RequestStatus.Rejected;
+  }
 
   get loginIdErrorMessage(): string {
     if (!this.loginIdForm || this.loginIdForm.valid) {
@@ -53,13 +68,31 @@ export class LoginFormComponent {
     return '';
   }
 
+  get disabled(): boolean {
+    return (
+      this.requestStatus === RequestStatus.Pending || !this.loginFormGroup.valid
+    );
+  }
+
+  get loading(): boolean {
+    return this.requestStatus === RequestStatus.Pending;
+  }
+
   toggleShowPassword(): void {
     this.showPassword = !this.showPassword;
-    this.visibility_icon = this.showPassword ? 'visibility_on' : 'visibility_off';
+    this.visibility_icon = this.showPassword
+      ? 'visibility_on'
+      : 'visibility_off';
     this.passwordType = this.showPassword ? 'text' : 'password';
   }
 
-  login(): void {
-    // EMPTY
+  submit(): void {
+    const { loginId, password } = this.loginFormGroup.getRawValue();
+
+    if (loginId === null || password === null) {
+      return;
+    }
+
+    this.login.emit({ loginId, password });
   }
 }

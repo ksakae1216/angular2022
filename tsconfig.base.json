@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@myorg/feature-login": ["libs/feature-login/src/index.ts"],
-      "@myorg/feature-top": ["libs/feature-top/src/index.ts"]
+      "@myorg/feature-top": ["libs/feature-top/src/index.ts"],
+      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

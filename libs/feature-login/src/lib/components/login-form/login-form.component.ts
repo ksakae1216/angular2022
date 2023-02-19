@@ -11,7 +11,7 @@ import { RequestStatus } from '@myorg/shared/data-access';
 @Component({
   selector: 'myorg-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss'],
+  styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent {

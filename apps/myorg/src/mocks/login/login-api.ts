@@ -14,7 +14,7 @@ export const loginApiMocks = [
       ctx.delay(2000),
       ctx.status(status),
       ctx.json({
-        accessToken: '123456abcde',
+        accessToken: 'dummyToken',
         userName: 'TEST 太郎',
       })
     );

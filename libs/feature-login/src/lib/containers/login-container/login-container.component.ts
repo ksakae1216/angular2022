@@ -1,8 +1,26 @@
 import { Component } from '@angular/core';
+import { LoginContainerStore } from './login-container.store';
 
 @Component({
   selector: 'myorg-login-container',
-  template: `<myorg-login-form></myorg-login-form>`,
+  template: `
+    <ng-container *ngIf="store$ | async as store">
+      <myorg-login-form
+        [requestStatus]="store.requestStatus"
+        (login)="login($event)"
+      ></myorg-login-form>
+    </ng-container>
+  `,
   styles: [],
 })
-export class LoginContainerComponent {}
+export class LoginContainerComponent {
+  readonly store$ = this.loginContainerStore.store$;
+
+  constructor(private readonly loginContainerStore: LoginContainerStore) {}
+
+  login(event: { loginId: string; password: string }) {
+    const { loginId, password } = event;
+
+    this.loginContainerStore.login({ loginId, password });
+  }
+}

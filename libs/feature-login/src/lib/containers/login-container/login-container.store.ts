@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService, RequestStatus } from '@myorg/shared/data-access';
+import {
+  AuthService,
+  LoginService,
+  RequestStatus,
+} from '@myorg/shared/data-access';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { switchMap, tap } from 'rxjs';
 
@@ -16,6 +20,7 @@ const initialState: LoginContainerState = {
 export class LoginContainerStore extends ComponentStore<LoginContainerState> {
   constructor(
     private readonly loginService: LoginService,
+    private readonly authService: AuthService,
     private readonly router: Router
   ) {
     super(initialState);
@@ -30,7 +35,8 @@ export class LoginContainerStore extends ComponentStore<LoginContainerState> {
         switchMap((params) =>
           this.loginService.postLogin(params.loginId, params.password).pipe(
             tapResponse(
-              () => {
+              (response) => {
+                this.authService.setCookie('token', response.accessToken);
                 this.router.navigateByUrl('/top');
                 this.patchState({ requestStatus: RequestStatus.Succeeded });
               },

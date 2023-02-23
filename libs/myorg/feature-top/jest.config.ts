@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-  displayName: 'feature-top',
-  preset: '../../jest.preset.js',
+  displayName: 'myorg-feature-top',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/feature-top',
+  coverageDirectory: '../../../coverage/libs/myorg/feature-top',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeatureTopComponent } from './feature-top.component';
+import { MyorgFeatureTopComponent } from './feature-top.component';
 
-describe('FeatureTopComponent', () => {
-  let component: FeatureTopComponent;
-  let fixture: ComponentFixture<FeatureTopComponent>;
+describe('MyorgFeatureTopComponent', () => {
+  let component: MyorgFeatureTopComponent;
+  let fixture: ComponentFixture<MyorgFeatureTopComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeatureTopComponent],
+      imports: [MyorgFeatureTopComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FeatureTopComponent);
+    fixture = TestBed.createComponent(MyorgFeatureTopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

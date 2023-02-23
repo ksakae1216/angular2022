@@ -11,7 +11,9 @@ const routes: Routes = [
   {
     path: 'top',
     loadComponent: () =>
-      import('@myorg/feature-top').then((m) => m.FeatureTopComponent),
+      import('@myorg/myorg/feature-top').then(
+        (m) => m.MyorgFeatureTopComponent
+      ),
   },
   {
     path: '',

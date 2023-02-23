@@ -8,4 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './feature-top.component.html',
   styles: [],
 })
-export class FeatureTopComponent {}
+export class MyorgFeatureTopComponent {}

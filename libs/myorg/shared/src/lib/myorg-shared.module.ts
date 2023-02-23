@@ -6,4 +6,4 @@ import { LoginService } from './services/login.service';
   imports: [CommonModule],
   providers: [LoginService],
 })
-export class SharedDataAccessModule {}
+export class MyorgSharedModule {}

@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'shared-data-access',
+  displayName: 'myorg-shared',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/shared/data-access',
+  coverageDirectory: '../../../coverage/libs/myorg/shared',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

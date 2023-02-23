@@ -6,12 +6,16 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('@myorg/feature-login').then((m) => m.FeatureLoginModule),
+      import('@myorg/myorg/feature-login').then(
+        (m) => m.MyorgFeatureLoginModule
+      ),
   },
   {
     path: 'top',
     loadComponent: () =>
-      import('@myorg/feature-top').then((m) => m.FeatureTopComponent),
+      import('@myorg/myorg/feature-top').then(
+        (m) => m.MyorgFeatureTopComponent
+      ),
   },
   {
     path: '',

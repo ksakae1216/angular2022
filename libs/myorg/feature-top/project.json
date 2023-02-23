@@ -1,0 +1,45 @@
+{
+  "name": "myorg-feature-top",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/myorg/feature-top/src",
+  "prefix": "myorg",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/myorg/feature-top/ng-package.json",
+        "tailwindConfig": "libs/myorg/feature-top/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/myorg/feature-top/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/myorg/feature-top/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/myorg/feature-top/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/myorg/feature-top/**/*.ts",
+          "libs/myorg/feature-top/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

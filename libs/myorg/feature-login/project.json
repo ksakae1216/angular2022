@@ -1,0 +1,36 @@
+{
+  "name": "myorg-feature-login",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/myorg/feature-login/src",
+  "prefix": "myorg",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/myorg/feature-login"],
+      "options": {
+        "jestConfig": "libs/myorg/feature-login/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/myorg/feature-login/**/*.ts",
+          "libs/myorg/feature-login/**/*.html"
+        ]
+      }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/myorg/feature-login/cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true,
+        "devServerTarget": "myorg:build"
+      }
+    }
+  },
+  "tags": []
+}

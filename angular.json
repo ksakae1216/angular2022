@@ -1,9 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "feature-login": "libs/feature-login",
     "myorg": "apps/myorg",
     "myorg-e2e": "apps/myorg-e2e",
+    "myorg-feature-login": "libs/myorg/feature-login",
     "myorg-feature-top": "libs/myorg/feature-top",
     "shared-data-access": "libs/shared/data-access"
   }

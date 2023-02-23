@@ -1,17 +1,15 @@
 {
-  "name": "feature-login",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "myorg-feature-login",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/feature-login/src",
+  "sourceRoot": "libs/myorg/feature-login/src",
   "prefix": "myorg",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/libs/feature-login"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/libs/myorg/feature-login"],
       "options": {
-        "jestConfig": "libs/feature-login/jest.config.ts",
+        "jestConfig": "libs/myorg/feature-login/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -19,15 +17,15 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/feature-login/**/*.ts",
-          "libs/feature-login/**/*.html"
+          "libs/myorg/feature-login/**/*.ts",
+          "libs/myorg/feature-login/**/*.html"
         ]
       }
     },
     "component-test": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "libs/feature-login/cypress.config.ts",
+        "cypressConfig": "libs/myorg/feature-login/cypress.config.ts",
         "testingType": "component",
         "skipServe": true,
         "devServerTarget": "myorg:build"

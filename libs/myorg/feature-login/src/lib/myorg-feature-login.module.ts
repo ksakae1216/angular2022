@@ -30,4 +30,4 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [LoginContainerStore],
 })
-export class FeatureLoginModule {}
+export class MyorgFeatureLoginModule {}

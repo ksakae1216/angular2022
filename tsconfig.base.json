@@ -17,7 +17,8 @@
     "paths": {
       "@myorg/myorg/feature-login": ["libs/myorg/feature-login/src/index.ts"],
       "@myorg/myorg/feature-top": ["libs/myorg/feature-top/src/index.ts"],
-      "@myorg/myorg/shared": ["libs/myorg/shared/src/index.ts"]
+      "@myorg/myorg/shared": ["libs/myorg/shared/src/index.ts"],
+      "@myorg/myorg-config": ["libs/myorg/shared/src/lib/app-config/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

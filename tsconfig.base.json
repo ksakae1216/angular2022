@@ -18,6 +18,7 @@
       "@myorg/myorg-config": ["libs/myorg/shared/src/lib/app-config/index.ts"],
       "@myorg/myorg/feature-login": ["libs/myorg/feature-login/src/index.ts"],
       "@myorg/myorg/feature-top": ["libs/myorg/feature-top/src/index.ts"],
+      "@myorg/myorg/shared/api": ["libs/myorg/shared/api/src/index.ts"],
       "@myorg/myorg/shared/data-access": [
         "libs/myorg/shared/data-access/src/index.ts"
       ],

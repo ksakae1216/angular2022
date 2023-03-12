@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RequestStatus } from '@myorg/myorg/shared';
+import { RequestStatus } from '@myorg/myorg/shared/data-access';
 import { createOutputSpy } from 'cypress/angular';
 import { LoginFormComponent } from './login-form.component';
 

@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { LoginService, RequestStatus } from '@myorg/shared-old';
+import { LoginService, RequestStatus } from '@myorg-shared-data-access';
 import { provideMockStore } from '@ngrx/store/testing';
 import { TestScheduler } from 'rxjs/testing';
 import { LoginContainerStore } from './login-container.store';

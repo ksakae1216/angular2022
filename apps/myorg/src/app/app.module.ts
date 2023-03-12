@@ -3,7 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MYORG_APP_CONFIG } from '@myorg/myorg-config';
+import { MYORG_APP_CONFIG } from '@myorg/myorg/shared/data-access';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';

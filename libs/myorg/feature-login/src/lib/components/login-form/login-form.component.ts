@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RequestStatus } from '@myorg/myorg/shared';
+import { RequestStatus } from '@myorg/shared-old';
 
 @Component({
   selector: 'myorg-login-form',

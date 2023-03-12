@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, LoginService, RequestStatus } from '@myorg/myorg/shared';
+import { AuthService, LoginService, RequestStatus } from '@myorg/shared-old';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { switchMap, tap } from 'rxjs';
 

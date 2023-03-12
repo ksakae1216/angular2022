@@ -1,7 +1,7 @@
-# myorg-shared
+# shared-old
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `nx test myorg-shared` to execute the unit tests.
+Run `nx test shared-old` to execute the unit tests.

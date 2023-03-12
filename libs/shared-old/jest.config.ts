@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-  displayName: 'myorg-shared',
-  preset: '../../../jest.preset.js',
+  displayName: 'shared-old',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/myorg/shared',
+  coverageDirectory: '../../coverage/libs/shared-old',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

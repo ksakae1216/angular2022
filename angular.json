@@ -5,6 +5,7 @@
     "myorg-e2e": "apps/myorg-e2e",
     "myorg-feature-login": "libs/myorg/feature-login",
     "myorg-feature-top": "libs/myorg/feature-top",
+    "myorg-shared-api": "libs/myorg/shared/api",
     "myorg-shared-data-access": "libs/myorg/shared/data-access"
   }
 }

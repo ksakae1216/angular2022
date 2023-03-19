@@ -3035,6 +3035,13 @@
   resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-15.0.0.tgz#2611a0d2c27a64a9e41303d985f178b69a25cce0"
   integrity sha512-P34CBkJaMWTfcaxf7OHF1zH+qg7rY1re4tWk5LrZAFFI3LMv8hhM1peWQehENPrbNWudo6yMr8HIU7ygnpBWZQ==
 
+"@ngrx/store@^15.4.0":
+  version "15.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-15.4.0.tgz#185ee18e5c4147c7db60fd3b223cc429f826d514"
+  integrity sha512-OvCuNBHL8mAUnRTS6QSFm+IunspsYNu2cCwDovBNn7EGhxRuGihBeNoX47jCqWPHBFtokj4BlatDfpJ/yCh4xQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@15.0.5":
   version "15.0.5"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-15.0.5.tgz#9daad4909029000ed1fcb19a05e2c01a06e054ae"
@@ -8312,6 +8319,7 @@ html-minifier-terser@^6.0.2:
     util.promisify "1.0.0"
 
 "html-webpack-plugin-5@npm:html-webpack-plugin@^5", html-webpack-plugin@^5.5.0:
+  name html-webpack-plugin-5
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-5.5.0.tgz#c3911936f57681c1f9f4d8b68c158cd9dfe52f50"
   integrity sha512-sy88PC2cRTVxvETRgUHFrL4No3UxvcH8G1NepGhqaTT+GXN2kTamqasot0inS5hXeg1cMbFDt27zzo9p35lZVw==

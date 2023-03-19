@@ -1,0 +1,51 @@
+openapi: 3.0.0
+x-stoplight:
+  id: qjnljykf3473n
+info:
+  title: login
+  version: '1.0'
+  description: Post login
+servers:
+  - url: 'https://local-myorg.com:4200/'
+    description: local
+paths:
+  /api/login:
+    post:
+      summary: Post Login
+      operationId: post-login
+      tags:
+        - Login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  userName:
+                    type: string
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                loginId:
+                  type: string
+                password:
+                  type: string
+              required:
+                - loginId
+                - password
+        description: ''
+      description: Log in with login ID and password
+    parameters: []
+tags:
+  - name: Login

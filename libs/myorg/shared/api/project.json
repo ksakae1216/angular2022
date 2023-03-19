@@ -5,6 +5,17 @@
   "sourceRoot": "libs/myorg/shared/api/src",
   "prefix": "myorg",
   "targets": {
+    "openapi": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx ng-openapi-gen -c ng-openapi-gen.json",
+          "yarn format"
+        ],
+        "cwd": "libs/myorg/shared/api",
+        "parallel": false
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

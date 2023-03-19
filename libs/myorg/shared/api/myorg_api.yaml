@@ -21,12 +21,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  accessToken:
-                    type: string
-                  userName:
-                    type: string
+                $ref: '#/components/schemas/User'
         '400':
           description: Bad request
         '401':
@@ -49,3 +44,19 @@ paths:
     parameters: []
 tags:
   - name: Login
+components:
+  schemas:
+    User:
+      title: User
+      x-stoplight:
+        id: 8o8zn683zjfi7
+      type: object
+      properties:
+        accessToken:
+          type: string
+        userName:
+          type: string
+      required:
+        - accessToken
+        - userName
+      description: Login Success

@@ -6,6 +6,7 @@ import '../mocks/browser';
 
 export const environment = {
   production: false,
+  apiUrl: 'https://local-myorg.com:4200/',
 };
 
 /*

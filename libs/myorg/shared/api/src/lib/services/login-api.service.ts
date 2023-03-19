@@ -9,6 +9,8 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { User } from '../models/user';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -40,12 +42,7 @@ export class LoginApiService extends BaseService {
       };
     },
     context?: HttpContext
-  ): Observable<
-    StrictHttpResponse<{
-      accessToken?: string;
-      userName?: string;
-    }>
-  > {
+  ): Observable<StrictHttpResponse<User>> {
     const rb = new RequestBuilder(
       this.rootUrl,
       LoginApiService.PostLoginPath,
@@ -66,10 +63,7 @@ export class LoginApiService extends BaseService {
       .pipe(
         filter((r: any) => r instanceof HttpResponse),
         map((r: HttpResponse<any>) => {
-          return r as StrictHttpResponse<{
-            accessToken?: string;
-            userName?: string;
-          }>;
+          return r as StrictHttpResponse<User>;
         })
       );
   }
@@ -92,23 +86,9 @@ export class LoginApiService extends BaseService {
       };
     },
     context?: HttpContext
-  ): Observable<{
-    accessToken?: string;
-    userName?: string;
-  }> {
+  ): Observable<User> {
     return this.postLogin$Response(params, context).pipe(
-      map(
-        (
-          r: StrictHttpResponse<{
-            accessToken?: string;
-            userName?: string;
-          }>
-        ) =>
-          r.body as {
-            accessToken?: string;
-            userName?: string;
-          }
-      )
+      map((r: StrictHttpResponse<User>) => r.body as User)
     );
   }
 }

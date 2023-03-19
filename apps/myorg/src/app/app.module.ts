@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { MyorgSharedApiModule } from '@myorg/myorg/shared/api';
 import { MYORG_APP_CONFIG } from '@myorg/myorg/shared/data-access';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
@@ -17,6 +18,9 @@ import { AppComponent } from './app.component';
     RouterModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MyorgSharedApiModule.forRoot({
+      rootUrl: environment.apiUrl,
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [

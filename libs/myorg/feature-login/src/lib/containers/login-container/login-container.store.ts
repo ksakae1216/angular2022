@@ -35,10 +35,12 @@ export class LoginContainerStore extends ComponentStore<LoginContainerState> {
         switchMap((params) =>
           this.loginService.postLogin(params.loginId, params.password).pipe(
             tapResponse(
-              (response) => {
-                this.authService.setCookie('token', response.accessToken);
-                this.router.navigateByUrl('/top');
-                this.patchState({ requestStatus: RequestStatus.Succeeded });
+              ({ accessToken, userName }) => {
+                if (accessToken && userName) {
+                  this.authService.setCookie('token', accessToken);
+                  this.router.navigateByUrl('/top');
+                  this.patchState({ requestStatus: RequestStatus.Succeeded });
+                }
               },
               () => {
                 this.patchState({ requestStatus: RequestStatus.Rejected });

@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoginApiService } from '@myorg/myorg/shared/api';
 import { Observable } from 'rxjs';
-import { Login } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private readonly loginApiService: LoginApiService,
+    private http: HttpClient
+  ) {}
 
-  postLogin(loginId: string, password: string): Observable<Login> {
-    return this.http.post<Login>('/api/login', { loginId, password });
+  postLogin(
+    loginId: string,
+    password: string
+  ): Observable<{ accessToken?: string; userName?: string }> {
+    return this.loginApiService.postLogin({ body: { loginId, password } });
   }
 }

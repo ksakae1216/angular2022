@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginApiService } from '@myorg/myorg/shared/api';
+import { LoginApiService, User } from '@myorg/myorg/shared/api';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,10 +12,7 @@ export class LoginService {
     private http: HttpClient
   ) {}
 
-  postLogin(
-    loginId: string,
-    password: string
-  ): Observable<{ accessToken?: string; userName?: string }> {
+  postLogin(loginId: string, password: string): Observable<User> {
     return this.loginApiService.postLogin({ body: { loginId, password } });
   }
 }

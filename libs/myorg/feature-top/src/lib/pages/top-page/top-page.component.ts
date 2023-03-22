@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MyorgFeatureTopComponent } from '../../feature-top/feature-top.component';
+import { MyorgFeatureTopComponent } from '../../components/feature-top/feature-top.component';
 
 @Component({
   selector: 'myorg-top-page',

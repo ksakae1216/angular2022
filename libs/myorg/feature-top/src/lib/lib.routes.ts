@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { MyorgFeatureTopComponent } from './feature-top/feature-top.component';
+import { TopPageComponent } from './pages/top-page/top-page.component';
 
 export const featureTopRoutes: Route[] = [
-  { path: '', component: MyorgFeatureTopComponent },
+  { path: '', component: TopPageComponent },
 ];

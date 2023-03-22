@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MyorgFeatureTopComponent } from '../../components/feature-top/feature-top.component';
+import { MyorgTopComponent } from '../../components/top/top.component';
 
 @Component({
   selector: 'myorg-top-page',
   standalone: true,
-  imports: [MyorgFeatureTopComponent],
+  imports: [MyorgTopComponent],
   templateUrl: './top-page.component.html',
   styleUrls: [],
 })

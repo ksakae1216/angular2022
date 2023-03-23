@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { MyorgTopComponent } from '../../components/top/top.component';
 
 @Component({
-  selector: 'myorg-top-page',
+  selector: 'myorg-main-layout',
   standalone: true,
   imports: [MyorgTopComponent],
-  templateUrl: './top-page.component.html',
+  templateUrl: './main-layout.component.html',
   styleUrls: [],
 })
-export class TopPageComponent {}
+export class MainLayoutComponent {}

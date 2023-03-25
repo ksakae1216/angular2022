@@ -26,6 +26,7 @@
     "@ngrx/schematics": "15.0.0",
     "@ngrx/store": "^15.4.0",
     "@nrwl/angular": "15.3.3",
+    "@nrwl/nx-plugin": "^15.8.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
     "ngx-cookie-service": "^15.0.0",

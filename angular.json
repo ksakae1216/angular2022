@@ -6,6 +6,7 @@
     "myorg-feature-login": "libs/myorg/feature-login",
     "myorg-feature-top": "libs/myorg/feature-top",
     "myorg-shared-api": "libs/myorg/shared/api",
-    "myorg-shared-data-access": "libs/myorg/shared/data-access"
+    "myorg-shared-data-access": "libs/myorg/shared/data-access",
+    "myorg-plugin": "libs/myorg-plugin"
   }
 }

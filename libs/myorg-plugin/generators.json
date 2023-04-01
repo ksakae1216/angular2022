@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "myorg-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "container": {
+      "factory": "./src/generators/container/generator",
+      "schema": "./src/generators/container/schema.json",
+      "description": "container generator"
+    }
+  }
+}

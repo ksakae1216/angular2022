@@ -1,0 +1,21 @@
+import { TestBed } from '@angular/core/testing';
+import { <%= className %>Store } from './<%= fileName %>.store';
+
+describe('<%= className %>Store', () => {
+  let componentStore: <%= className %>Store;
+
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [],
+      providers: [<%= className %>Store],
+    })
+  );
+
+  beforeEach(() => {
+    componentStore = TestBed.inject(<%= className %>Store);
+  });
+
+  it('should be created', () => {
+    expect(componentStore).toBeTruthy();
+  });
+});

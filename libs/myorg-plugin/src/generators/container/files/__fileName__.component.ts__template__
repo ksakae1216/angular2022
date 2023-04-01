@@ -1,0 +1,19 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { <%= className %>Store } from './<%= fileName %>.store';
+
+@Component({
+  selector: '<%= prefix %>-<%= fileName %>',
+  template: `
+    <ng-container *ngIf="vm$ | async as vm">
+      <p><%= fileName %> works!</p>
+    </ng-container>
+  `,
+  styles: [],
+  providers: [<%= className %>Store],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class <%= className %>Component {
+  readonly vm$ = this.componentStore.vm$;
+
+  constructor(private readonly componentStore: <%= className %>Store) {}
+}

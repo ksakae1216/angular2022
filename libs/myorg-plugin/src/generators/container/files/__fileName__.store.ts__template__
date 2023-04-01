@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import { ComponentStore } from '@ngrx/component-store';
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface <%= className %>StoreState {}
+
+const initialState: <%= className %>StoreState = {};
+
+@Injectable()
+export class <%= className %>Store extends ComponentStore<<%= className %>StoreState> {
+  constructor() {
+    super(initialState);
+  }
+
+  readonly vm$ = this.select((state) => ({ ...state }));
+}

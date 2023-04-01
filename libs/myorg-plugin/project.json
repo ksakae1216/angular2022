@@ -1,0 +1,66 @@
+{
+  "name": "myorg-plugin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/myorg-plugin/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/myorg-plugin",
+        "main": "libs/myorg-plugin/src/index.ts",
+        "tsConfig": "libs/myorg-plugin/tsconfig.lib.json",
+        "assets": [
+          {
+            "input": "./libs/myorg-plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/myorg-plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/myorg-plugin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/myorg-plugin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/myorg-plugin/**/*.ts",
+          "libs/myorg-plugin/generators.json",
+          "libs/myorg-plugin/executors.json",
+          "libs/myorg-plugin/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/myorg-plugin/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

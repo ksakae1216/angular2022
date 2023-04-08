@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeaderContainerStore } from './header-container.store';
 
@@ -8,6 +9,8 @@ import { HeaderContainerStore } from './header-container.store';
       <p>header-container works!</p>
     </ng-container>
   `,
+  standalone: true,
+  imports: [CommonModule],
   styles: [],
   providers: [HeaderContainerStore],
   changeDetection: ChangeDetectionStrategy.OnPush,

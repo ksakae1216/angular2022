@@ -1,8 +1,11 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { <%= className %>Store } from './<%= fileName %>.store';
 
 @Component({
   selector: '<%= prefix %>-<%= fileName %>',
+  standalone: true,
+  imports: [NgIf, AsyncPipe],
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <p><%= fileName %> works!</p>

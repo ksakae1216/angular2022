@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { HeaderComponent } from '../../components';
 import { HeaderContainerStore } from './header-container.store';
 
 @Component({
   selector: 'myorg-header-container',
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <p>header-container works!</p>
+      <myorg-header></myorg-header>
     </ng-container>
   `,
   standalone: true,
-  imports: [CommonModule],
   styles: [],
   providers: [HeaderContainerStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, HeaderComponent],
 })
 export class HeaderContainerComponent {
   readonly vm$ = this.componentStore.vm$;

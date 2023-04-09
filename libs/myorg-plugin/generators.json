@@ -7,6 +7,11 @@
       "factory": "./src/generators/container/generator",
       "schema": "./src/generators/container/schema.json",
       "description": "container generator"
+    },
+    "component": {
+      "factory": "./src/generators/component/generator",
+      "schema": "./src/generators/component/schema.json",
+      "description": "component generator"
     }
   }
 }

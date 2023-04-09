@@ -1,0 +1,14 @@
+import { <%= className %>Component } from './<%= fileName %>.component';
+
+describe('<%= className %>Component', () => {
+  it('should render component', () => {
+    setup();
+  });
+});
+
+function setup(props?: Partial<<%= className %>Component>) {
+  cy.mount(<%= className %>Component, {
+    imports: [],
+    componentProperties: {},
+  })
+}

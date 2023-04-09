@@ -22,7 +22,7 @@ function normalizeOptions(
   tree: Tree,
   options: ComponentGeneratorSchema
 ): NormalizedSchema {
-  const project = options.project ?? readNxJson(tree).defaultProject ?? '';
+  const project = options.project ?? readNxJson(tree)?.defaultProject ?? '';
 
   const { projectType, root, sourceRoot } = readProjectConfiguration(
     tree,

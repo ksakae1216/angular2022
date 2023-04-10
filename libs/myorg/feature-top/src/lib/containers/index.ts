@@ -1,3 +1,3 @@
-import { HeaderContainerComponent } from './header-container/header-container.component';
+import { HeaderRightContainerComponent } from './header-right-container/header-right-container.component';
 
-export { HeaderContainerComponent };
+export { HeaderRightContainerComponent };

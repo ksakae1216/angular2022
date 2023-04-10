@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HeaderContainerStore } from './header-container.store';
+import { HeaderContainerStore } from './header-right-container.store';
 
 describe('HeaderContainerStore', () => {
   let componentStore: HeaderContainerStore;

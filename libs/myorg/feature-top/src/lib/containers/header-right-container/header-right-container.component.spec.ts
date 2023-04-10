@@ -1,8 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { HeaderContainerComponent } from './header-container.component';
-import { HeaderContainerStore } from './header-container.store';
+import { HeaderContainerComponent } from './header-right-container.component';
+import { HeaderContainerStore } from './header-right-container.store';
 
 describe('HeaderContainerComponent', () => {
   let component: HeaderContainerComponent;

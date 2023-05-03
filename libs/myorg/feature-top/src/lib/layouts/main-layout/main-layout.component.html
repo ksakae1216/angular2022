@@ -3,8 +3,13 @@
     <myorg-header-page></myorg-header-page>
   </div>
   <div class="flex-auto w-full overflow-auto">
-    <myorg-body-page>
-      <myorg-top></myorg-top>
-    </myorg-body-page>
+    <div class="flex h-full w-full">
+      <div class="flex-none min-w-[200px]">
+        <myorg-body-side-navi-page></myorg-body-side-navi-page>
+      </div>
+      <div class="flex-auto w-full">
+        <myorg-body-main-page></myorg-body-main-page>
+      </div>
+    </div>
   </div>
 </div>

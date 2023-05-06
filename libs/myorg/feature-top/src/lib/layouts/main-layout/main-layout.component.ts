@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BodyMainPageComponent } from '../../pages/body-main-page/body-main-page.component';
-import { BodySideNaviPageComponent } from '../../pages/body-side-navi-page/body-side-navi-page.component';
+import { BodySideNavPageComponent } from '../../pages/body-side-nav-page/body-side-nav-page.component';
 import { HeaderPageComponent } from '../../pages/header-page/header-page.component';
 
 @Component({
@@ -8,7 +8,7 @@ import { HeaderPageComponent } from '../../pages/header-page/header-page.compone
   standalone: true,
   imports: [
     HeaderPageComponent,
-    BodySideNaviPageComponent,
+    BodySideNavPageComponent,
     BodyMainPageComponent,
   ],
   templateUrl: './main-layout.component.html',

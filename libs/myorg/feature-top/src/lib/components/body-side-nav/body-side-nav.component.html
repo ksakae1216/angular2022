@@ -1,1 +1,24 @@
-<p>body-side-nav works!</p>
+<div class="w-full">
+  <a
+    name="portal"
+    routerLink="/top"
+    routerLinkActive="bg-slate-100 text-cyan-700"
+    class="flex h-12 hover:bg-slate-100"
+  >
+    <div class="ml-2 flex items-center">
+      <mat-icon>pets</mat-icon>
+      <span class="text-base mx-2">Portal</span>
+    </div>
+  </a>
+  <a
+    name="list"
+    routerLink="/list"
+    routerLinkActive="bg-slate-200 text-cyan-700"
+    class="flex h-12 hover:bg-slate-100"
+  >
+    <div class="ml-2 flex items-center">
+      <mat-icon>format_list_bulleted</mat-icon>
+      <span class="text-base mx-2">List</span>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,60 @@
+{
+  "name": "myorg-feature-portal",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/myorg/feature-portal/src",
+  "prefix": "myorg",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
+      "options": {
+        "project": "libs/myorg/feature-portal/ng-package.json",
+        "tailwindConfig": "libs/myorg/feature-portal/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/myorg/feature-portal/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/myorg/feature-portal/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "libs/myorg/feature-portal/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/myorg/feature-portal/**/*.ts",
+          "libs/myorg/feature-portal/**/*.html"
+        ]
+      }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/myorg/feature-portal/cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true,
+        "devServerTarget": "myorg:build"
+      }
+    }
+  },
+  "tags": []
+}

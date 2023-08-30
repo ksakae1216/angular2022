@@ -20,4 +20,17 @@ export class AuthService {
 
     return expiredAt;
   }
+
+  getCookie(name: string): string {
+    return this.cookieService.get(name);
+  }
+
+  isTokenExist(): boolean {
+    const token: string = this.getCookie('token');
+    if (token) {
+      return true;
+    }
+
+    return false;
+  }
 }

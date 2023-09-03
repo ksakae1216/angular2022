@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@myorg/myorg/feature-login';
 
 const routes: Routes = [
   {
@@ -11,14 +12,24 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'top',
+    path: '',
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('@myorg/myorg/feature-top').then((m) => m.MainLayoutComponent),
-  },
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    children: [
+      {
+        path: 'top',
+        loadComponent: () =>
+          import('@myorg/myorg/feature-top').then(
+            (m) => m.BodyMainPageComponent
+          ),
+      },
+      {
+        path: '',
+        redirectTo: 'top',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];
 

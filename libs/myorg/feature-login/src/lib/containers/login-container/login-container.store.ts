@@ -37,7 +37,7 @@ export class LoginContainerStore extends ComponentStore<LoginContainerState> {
             tapResponse(
               ({ accessToken, userName }) => {
                 this.authService.setCookie('token', accessToken);
-                this.router.navigateByUrl('/top');
+                this.router.navigateByUrl('');
                 this.patchState({ requestStatus: RequestStatus.Succeeded });
               },
               () => {

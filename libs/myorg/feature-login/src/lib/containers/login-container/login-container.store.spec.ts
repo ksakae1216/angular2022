@@ -111,7 +111,7 @@ describe('LoginContainerStore', () => {
       componentStore.login({ loginId: 'test1', password: 'Password1' });
     });
 
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/top');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('');
   });
 
   it('should call pathState on error', () => {

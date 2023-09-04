@@ -6,7 +6,7 @@
   "prefix": "myorg",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/myorg/feature-login"],
       "options": {
         "jestConfig": "libs/myorg/feature-login/jest.config.ts",
@@ -14,7 +14,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/myorg/feature-login/**/*.ts",
@@ -23,7 +23,7 @@
       }
     },
     "component-test": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "libs/myorg/feature-login/cypress.config.ts",
         "testingType": "component",

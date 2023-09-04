@@ -1,4 +1,4 @@
-import { componentGenerator } from '@nrwl/angular/generators';
+import { componentGenerator } from '@nx/angular/generators';
 import {
   Tree,
   formatFiles,
@@ -7,7 +7,7 @@ import {
   names,
   readNxJson,
   readProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { ComponentGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends ComponentGeneratorSchema {

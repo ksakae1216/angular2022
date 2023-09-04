@@ -8,7 +8,7 @@ import {
   offsetFromRoot,
   readNxJson,
   Tree,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { ContainerGeneratorSchema } from './schema';
 import path = require('path');
 

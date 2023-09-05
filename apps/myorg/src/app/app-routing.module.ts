@@ -25,6 +25,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'list',
+        loadChildren: () =>
+          import('@myorg/myorg/feature-list').then(
+            (m) => m.myorgFeatureListRoutes
+          ),
+      },
+      {
         path: '',
         redirectTo: 'top',
         pathMatch: 'full',

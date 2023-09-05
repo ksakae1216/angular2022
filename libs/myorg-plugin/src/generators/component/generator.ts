@@ -57,6 +57,9 @@ async function addFiles(tree: Tree, options: NormalizedSchema) {
     style: 'none',
   });
 
+  // nx 16にアップグレード後、${options.name}.component.noneが作成されるようになったので削除
+  tree.delete(`${options.path}/${options.name}/${options.name}.component.none`);
+
   generateFiles(
     tree,
     joinPathFragments(__dirname, './files'),

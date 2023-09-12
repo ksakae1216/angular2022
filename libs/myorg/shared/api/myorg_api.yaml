@@ -42,14 +42,25 @@ paths:
         description: ''
       description: Log in with login ID and password
     parameters: []
-tags:
-  - name: Login
+  /api/list:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Element'
+        '500':
+          description: Internal Server Error
+      operationId: get-api-list
 components:
   schemas:
     User:
       title: User
-      x-stoplight:
-        id: 8o8zn683zjfi7
       type: object
       properties:
         accessToken:
@@ -59,4 +70,24 @@ components:
       required:
         - accessToken
         - userName
-      description: Login Success
+    Element:
+      title: Element
+      x-stoplight:
+        id: ywmq4mndk1248
+      type: object
+      properties:
+        position:
+          type: string
+        name:
+          type: string
+        weight:
+          type: string
+        symbol:
+          type: string
+      required:
+        - position
+        - name
+        - weight
+        - symbol
+tags:
+  - name: User

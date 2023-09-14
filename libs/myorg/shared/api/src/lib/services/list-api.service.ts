@@ -37,7 +37,7 @@ export class ListApiService extends BaseService {
   getList$Response(
     params?: {},
     context?: HttpContext
-  ): Observable<StrictHttpResponse<ElementList>> {
+  ): Observable<StrictHttpResponse<Array<ElementList>>> {
     const rb = new RequestBuilder(
       this.rootUrl,
       ListApiService.GetListPath,
@@ -57,7 +57,7 @@ export class ListApiService extends BaseService {
       .pipe(
         filter((r: any) => r instanceof HttpResponse),
         map((r: HttpResponse<any>) => {
-          return r as StrictHttpResponse<ElementList>;
+          return r as StrictHttpResponse<Array<ElementList>>;
         })
       );
   }
@@ -72,9 +72,12 @@ export class ListApiService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getList(params?: {}, context?: HttpContext): Observable<ElementList> {
+  getList(params?: {}, context?: HttpContext): Observable<Array<ElementList>> {
     return this.getList$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ElementList>) => r.body as ElementList)
+      map(
+        (r: StrictHttpResponse<Array<ElementList>>) =>
+          r.body as Array<ElementList>
+      )
     );
   }
 }

@@ -53,10 +53,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Element'
+                $ref: '#/components/schemas/ElementList'
         '500':
           description: Internal Server Error
-      operationId: get-api-list
+      operationId: get-list
 components:
   schemas:
     User:
@@ -70,10 +70,10 @@ components:
       required:
         - accessToken
         - userName
-    Element:
-      title: Element
+    ElementList:
+      title: ElementList
       x-stoplight:
-        id: ywmq4mndk1248
+        id: 3478706b33307
       type: object
       properties:
         position:
@@ -89,5 +89,6 @@ components:
         - name
         - weight
         - symbol
+      description: ''
 tags:
   - name: User

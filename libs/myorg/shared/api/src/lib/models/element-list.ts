@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-export interface Element {
+export interface ElementList {
   name: string;
   position: string;
   symbol: string;

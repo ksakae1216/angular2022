@@ -1,2 +1,2 @@
 export { User } from './models/user';
-export { Element } from './models/element';
+export { ElementList } from './models/element-list';

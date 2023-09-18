@@ -1,16 +1,52 @@
-import { Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
+import { Injectable, inject } from '@angular/core';
+import { ElementList } from '@myorg/myorg/shared/api';
+import { ListService } from '@myorg/myorg/shared/data-access';
+import {
+  ComponentStore,
+  OnStoreInit,
+  tapResponse,
+} from '@ngrx/component-store';
+import { EMPTY, switchMap } from 'rxjs';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface ListContainerStoreState {}
+interface ListContainerStoreState {
+  elementList: ElementList[];
+}
 
-const initialState: ListContainerStoreState = {};
+const initialState: ListContainerStoreState = {
+  elementList: [],
+};
 
 @Injectable()
-export class ListContainerStore extends ComponentStore<ListContainerStoreState> {
+export class ListContainerStore
+  extends ComponentStore<ListContainerStoreState>
+  implements OnStoreInit
+{
+  private readonly listService = inject(ListService);
+
   constructor() {
     super(initialState);
   }
 
-  readonly vm$ = this.select((state) => ({ ...state }));
+  readonly elementList$ = this.select((state) => state.elementList);
+
+  readonly vm$ = this.select({
+    elementList: this.elementList$,
+  });
+
+  readonly getList = this.effect((void$) =>
+    void$.pipe(
+      switchMap(() =>
+        this.listService.getList().pipe(
+          tapResponse(
+            (elementList) => this.patchState({ elementList }),
+            () => EMPTY // Todo: implement snackbar and move top screen
+          )
+        )
+      )
+    )
+  );
+
+  ngrxOnStoreInit(): void {
+    this.getList();
+  }
 }

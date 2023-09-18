@@ -1,18 +1,22 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { provideComponentStore } from '@ngrx/component-store';
+import { ListComponent } from '../../components';
 import { ListContainerStore } from './list-container.store';
 
 @Component({
   selector: 'myorg-list-container',
   standalone: true,
-  imports: [NgIf, AsyncPipe],
+  imports: [NgIf, AsyncPipe, ListComponent],
   template: `
     <ng-container *ngIf="vm$ | async as vm">
-      <p>list-container works!</p>
+      <myorg-list
+        [elementList]="vm.elementList"
+       />
     </ng-container>
   `,
   styles: [],
-  providers: [ListContainerStore],
+  providers: [provideComponentStore(ListContainerStore)],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListContainerComponent {

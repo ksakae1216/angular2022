@@ -13,6 +13,7 @@ import {
 } from './myorg-shared-api-configuration';
 
 import { LoginApiService } from './services/login-api.service';
+import { ListApiService } from './services/list-api.service';
 
 /**
  * Module that provides all services and configuration.
@@ -21,7 +22,7 @@ import { LoginApiService } from './services/login-api.service';
   imports: [],
   exports: [],
   declarations: [],
-  providers: [LoginApiService, MyorgSharedApiConfiguration],
+  providers: [LoginApiService, ListApiService, MyorgSharedApiConfiguration],
 })
 export class MyorgSharedApiModule {
   static forRoot(

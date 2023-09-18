@@ -5,26 +5,11 @@
   "sourceRoot": "libs/myorg/feature-list/src",
   "prefix": "myorg",
   "targets": {
-    "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/myorg/feature-list/ng-package.json",
-        "tailwindConfig": "libs/myorg/feature-list/tailwind.config.js"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/myorg/feature-list/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/myorg/feature-list/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/myorg/feature-list/jest.config.ts",
         "passWithNoTests": true
@@ -32,7 +17,9 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "libs/myorg/feature-list/**/*.ts",

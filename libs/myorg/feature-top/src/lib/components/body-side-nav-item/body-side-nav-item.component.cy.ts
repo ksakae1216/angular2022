@@ -7,7 +7,7 @@ describe('BodySideNavItemComponent', () => {
 
     const portal = cy.get('[name="portal"]');
 
-    portal.should('have.attr', 'routerlink', '/top');
+    portal.should('have.attr', 'href', '/top');
     portal.within(() => {
       cy.get('.mat-icon').should('have.text', 'pets');
       cy.get('span').should('have.text', 'Portal');

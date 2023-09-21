@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ListPageComponent } from './list-page.component';
 
 describe('ListPageComponent', () => {
@@ -8,7 +9,7 @@ describe('ListPageComponent', () => {
 
 function setup(props?: Partial<ListPageComponent>) {
   cy.mount(ListPageComponent, {
-    imports: [],
+    imports: [HttpClientTestingModule],
     componentProperties: {},
   });
 }

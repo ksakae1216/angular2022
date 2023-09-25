@@ -1,24 +1,56 @@
-<table cdk-table [dataSource]="elementList">
-  <ng-container cdkColumnDef="position">
-    <th cdk-header-cell *cdkHeaderCellDef>No.</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.position }}</td>
-  </ng-container>
+<div class="flex h-full overflow-hidden justify-center">
+  <div class="flex-grow">
+    <table
+      cdk-table
+      [dataSource]="elementList"
+      class="w-full max-w-[70%] min-w-fit m-auto"
+    >
+      <ng-container cdkColumnDef="position">
+        <th cdk-header-cell *cdkHeaderCellDef class="w-[10%] text-start">
+          No.
+        </th>
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.position }}
+        </td>
+      </ng-container>
 
-  <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef>Name</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.name }}</td>
-  </ng-container>
+      <ng-container cdkColumnDef="name">
+        <th cdk-header-cell *cdkHeaderCellDef class="w-[50%] text-start">
+          Name
+        </th>
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.name }}
+        </td>
+      </ng-container>
 
-  <ng-container cdkColumnDef="weight">
-    <th cdk-header-cell *cdkHeaderCellDef>Weight</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.weight }}</td>
-  </ng-container>
+      <ng-container cdkColumnDef="weight">
+        <th cdk-header-cell *cdkHeaderCellDef class="w-[30%] text-start">
+          Weight
+        </th>
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.weight }}
+        </td>
+      </ng-container>
 
-  <ng-container cdkColumnDef="symbol">
-    <th cdk-header-cell *cdkHeaderCellDef>Symbol</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.symbol }}</td>
-  </ng-container>
+      <ng-container cdkColumnDef="symbol">
+        <th cdk-header-cell *cdkHeaderCellDef class="w-[10%] text-start">
+          Symbol
+        </th>
+        <td cdk-cell *cdkCellDef="let element">
+          {{ element.symbol }}
+        </td>
+      </ng-container>
 
-  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
-</table>
+      <tr
+        cdk-header-row
+        *cdkHeaderRowDef="displayedColumns"
+        class="border-solid border-b border-[silver]"
+      ></tr>
+      <tr
+        cdk-row
+        *cdkRowDef="let row; columns: displayedColumns"
+        class="h-8 hover:bg-slate-100"
+      ></tr>
+    </table>
+  </div>
+</div>

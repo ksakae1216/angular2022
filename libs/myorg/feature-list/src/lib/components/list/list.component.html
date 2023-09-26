@@ -1,12 +1,16 @@
 <div class="flex h-full overflow-hidden justify-center">
-  <div class="flex-grow">
+  <div class="flex-grow overflow-auto">
     <table
       cdk-table
       [dataSource]="elementList"
       class="w-full max-w-[70%] min-w-fit m-auto"
     >
       <ng-container cdkColumnDef="position">
-        <th cdk-header-cell *cdkHeaderCellDef class="w-[10%] text-start">
+        <th
+          cdk-header-cell
+          *cdkHeaderCellDef
+          class="w-[10%] text-start bg-emerald-200"
+        >
           No.
         </th>
         <td cdk-cell *cdkCellDef="let element">
@@ -15,7 +19,11 @@
       </ng-container>
 
       <ng-container cdkColumnDef="name">
-        <th cdk-header-cell *cdkHeaderCellDef class="w-[50%] text-start">
+        <th
+          cdk-header-cell
+          *cdkHeaderCellDef
+          class="w-[50%] text-start bg-emerald-200"
+        >
           Name
         </th>
         <td cdk-cell *cdkCellDef="let element">
@@ -24,7 +32,11 @@
       </ng-container>
 
       <ng-container cdkColumnDef="weight">
-        <th cdk-header-cell *cdkHeaderCellDef class="w-[30%] text-start">
+        <th
+          cdk-header-cell
+          *cdkHeaderCellDef
+          class="w-[30%] text-start bg-emerald-200"
+        >
           Weight
         </th>
         <td cdk-cell *cdkCellDef="let element">
@@ -33,7 +45,11 @@
       </ng-container>
 
       <ng-container cdkColumnDef="symbol">
-        <th cdk-header-cell *cdkHeaderCellDef class="w-[10%] text-start">
+        <th
+          cdk-header-cell
+          *cdkHeaderCellDef
+          class="w-[10%] text-start bg-emerald-200"
+        >
           Symbol
         </th>
         <td cdk-cell *cdkCellDef="let element">
@@ -43,7 +59,7 @@
 
       <tr
         cdk-header-row
-        *cdkHeaderRowDef="displayedColumns"
+        *cdkHeaderRowDef="displayedColumns; sticky: true"
         class="border-solid border-b border-[silver]"
       ></tr>
       <tr

@@ -43,7 +43,9 @@ describe('ListContainerStore', () => {
 
       componentStore.getList();
 
+      expect(componentStore.patchState).toHaveBeenCalledWith({ loading: true });
       expect(componentStore.patchState).toHaveBeenCalledWith({
+        loading: false,
         elementList: [],
       });
     });

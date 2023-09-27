@@ -5,6 +5,12 @@ describe('ListComponent', () => {
     setup();
   });
 
+  it('should render loading', () => {
+    setup({ loading: true });
+
+    cy.get('mat-spinner').should('exist');
+  });
+
   it('should render list of 3', () => {
     setup({
       elementList: [
@@ -21,6 +27,7 @@ function setup(props?: Partial<ListComponent>) {
   cy.mount(ListComponent, {
     imports: [],
     componentProperties: {
+      loading: props?.loading ?? false,
       elementList: props?.elementList ?? [],
     },
   });

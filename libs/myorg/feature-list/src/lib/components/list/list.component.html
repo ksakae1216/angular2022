@@ -68,5 +68,8 @@
         class="h-8 hover:bg-slate-100"
       ></tr>
     </table>
+    <ng-container *ngIf="loading">
+      <mat-spinner class="w-full m-auto mt-16"></mat-spinner>
+    </ng-container>
   </div>
 </div>

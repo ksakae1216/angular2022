@@ -11,6 +11,7 @@ import { ListContainerStore } from './list-container.store';
   template: `
     <ng-container *ngIf="vm$ | async as vm">
       <myorg-list
+        [loading]="vm.loading"
         [elementList]="vm.elementList"
        />
     </ng-container>

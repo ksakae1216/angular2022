@@ -47,18 +47,36 @@ paths:
       summary: Your GET endpoint
       tags:
         - List
+      operationId: get-list
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: pageSize
+          required: true
+        - schema:
+            type: number
+          in: query
+          name: currentPage
+          required: true
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ElementList'
-        '500':
-          description: Internal Server Error
-      operationId: get-list
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ElementList'
+                  paginator:
+                    $ref: '#/components/schemas/Paginator'
+                required:
+                  - list
+                  - paginator
+    parameters: []
 components:
   schemas:
     User:
@@ -75,7 +93,7 @@ components:
     ElementList:
       title: ElementList
       x-stoplight:
-        id: 3478706b33307
+        id: 9f11db1b945d5
       type: object
       properties:
         position:
@@ -92,5 +110,17 @@ components:
         - weight
         - symbol
       description: ''
+    Paginator:
+      title: Paginator
+      x-stoplight:
+        id: zqq4u7biztobv
+      type: object
+      properties:
+        pageSize:
+          type: number
+        currentPage:
+          type: number
+        length:
+          type: number
 tags:
   - name: User

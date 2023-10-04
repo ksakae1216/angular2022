@@ -13,6 +13,7 @@ import { ListContainerStore } from './list-container.store';
       <myorg-list
         [loading]="vm.loading"
         [elementList]="vm.elementList"
+        [elementTotalCount]="vm.elementTotalCount"
        />
     </ng-container>
   `,

@@ -1,5 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { ElementList, ListApiService } from '@myorg/myorg/shared/api';
+import {
+  ElementList,
+  ListApiService,
+  Paginator,
+} from '@myorg/myorg/shared/api';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +12,10 @@ import { Observable } from 'rxjs';
 export class ListService {
   private readonly listApiService = inject(ListApiService);
 
-  getList(): Observable<ElementList[]> {
-    return this.listApiService.getList();
+  getList(params: { pageSize: number; currentPage: number }): Observable<{
+    list: ElementList[];
+    paginator: Paginator;
+  }> {
+    return this.listApiService.getList(params);
   }
 }

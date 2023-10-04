@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 import { ElementList } from '../models/element-list';
+import { Paginator } from '../models/paginator';
 
 @Injectable({
   providedIn: 'root',
@@ -35,15 +36,25 @@ export class ListApiService extends BaseService {
    * This method doesn't expect any request body.
    */
   getList$Response(
-    params?: {},
+    params: {
+      pageSize: number;
+      currentPage: number;
+    },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<ElementList>>> {
+  ): Observable<
+    StrictHttpResponse<{
+      list: Array<ElementList>;
+      paginator: Paginator;
+    }>
+  > {
     const rb = new RequestBuilder(
       this.rootUrl,
       ListApiService.GetListPath,
       'get'
     );
     if (params) {
+      rb.query('pageSize', params.pageSize, {});
+      rb.query('currentPage', params.currentPage, {});
     }
 
     return this.http
@@ -57,7 +68,10 @@ export class ListApiService extends BaseService {
       .pipe(
         filter((r: any) => r instanceof HttpResponse),
         map((r: HttpResponse<any>) => {
-          return r as StrictHttpResponse<Array<ElementList>>;
+          return r as StrictHttpResponse<{
+            list: Array<ElementList>;
+            paginator: Paginator;
+          }>;
         })
       );
   }
@@ -72,11 +86,28 @@ export class ListApiService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getList(params?: {}, context?: HttpContext): Observable<Array<ElementList>> {
+  getList(
+    params: {
+      pageSize: number;
+      currentPage: number;
+    },
+    context?: HttpContext
+  ): Observable<{
+    list: Array<ElementList>;
+    paginator: Paginator;
+  }> {
     return this.getList$Response(params, context).pipe(
       map(
-        (r: StrictHttpResponse<Array<ElementList>>) =>
-          r.body as Array<ElementList>
+        (
+          r: StrictHttpResponse<{
+            list: Array<ElementList>;
+            paginator: Paginator;
+          }>
+        ) =>
+          r.body as {
+            list: Array<ElementList>;
+            paginator: Paginator;
+          }
       )
     );
   }

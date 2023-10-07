@@ -3,11 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { ListService } from '@myorg/myorg/shared/data-access';
 import { provideComponentStore } from '@ngrx/component-store';
 import { of } from 'rxjs';
-import {
-  initCurrentPage,
-  initPageSize,
-  initPageSizeOptions,
-} from '../../consts';
+import { initCurrentPage, initPageSize } from '../../consts';
 import { ListContainerStore } from './list-container.store';
 
 describe('ListContainerStore', () => {
@@ -37,7 +33,6 @@ describe('ListContainerStore', () => {
     const paginator = {
       pageSize: initPageSize,
       currentPage: initCurrentPage,
-      pageSizeOptions: initPageSizeOptions,
     };
 
     it('should call listService.getList', () => {
@@ -70,7 +65,11 @@ describe('ListContainerStore', () => {
       expect(componentStore.patchState).toHaveBeenCalledWith({
         loading: false,
         elementList: [],
-        elementTotalCount: 0,
+        paging: {
+          currentPage: initCurrentPage,
+          pageSize: initPageSize,
+          totalCount: 0,
+        },
       });
     });
   });
@@ -84,7 +83,6 @@ describe('ListContainerStore', () => {
       expect(componentStore.getList).toHaveBeenCalledWith({
         pageSize: initPageSize,
         currentPage: initCurrentPage,
-        pageSizeOptions: initPageSizeOptions,
       });
     });
   });

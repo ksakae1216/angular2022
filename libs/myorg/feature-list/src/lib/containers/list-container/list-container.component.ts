@@ -1,5 +1,6 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { provideComponentStore } from '@ngrx/component-store';
 import { ListComponent } from '../../components';
 import { ListContainerStore } from './list-container.store';
@@ -13,7 +14,8 @@ import { ListContainerStore } from './list-container.store';
       <myorg-list
         [loading]="vm.loading"
         [elementList]="vm.elementList"
-        [elementTotalCount]="vm.elementTotalCount"
+        [paging]="vm.paging"
+        (pageAction)="pageAction($event)"
        />
     </ng-container>
   `,
@@ -25,4 +27,9 @@ export class ListContainerComponent {
   readonly vm$ = this.componentStore.vm$;
 
   constructor(private readonly componentStore: ListContainerStore) {}
+
+  pageAction(event: PageEvent) {
+    console.log('pageAction', event);
+    this.componentStore.pageAction(event);
+  }
 }

@@ -68,9 +68,11 @@
       <mat-paginator
         *ngIf="!loading"
         class="mt-4"
-        [length]="elementTotalCount"
-        [pageSize]="pageSize"
+        [length]="paging?.totalCount"
+        [pageIndex]="paging?.pageIndex"
+        [pageSize]="paging?.pageSize"
         [pageSizeOptions]="pageSizeOptions"
+        (page)="pageAction.emit($event)"
         aria-label="Select page"
       >
       </mat-paginator>

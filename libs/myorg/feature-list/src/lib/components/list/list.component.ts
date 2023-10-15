@@ -1,6 +1,8 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ElementList } from '@myorg/myorg/shared/api';
@@ -13,6 +15,7 @@ import { Paging } from '../../models/paging.model';
   imports: [
     CommonModule,
     CdkTableModule,
+    MatCheckboxModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
   ],
@@ -25,7 +28,27 @@ export class ListComponent {
 
   @Output() pageAction = new EventEmitter<PageEvent>();
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  readonly displayedColumns: string[] = [
+    'select',
+    'position',
+    'name',
+    'weight',
+    'symbol',
+  ];
+
+  readonly selection = new SelectionModel<ElementList>(true, []);
 
   readonly pageSizeOptions = paginator.pageSizeOptions;
+
+  isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.elementList.length;
+    return numSelected === numRows;
+  }
+
+  toggleAllSelection(): void {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.elementList.forEach((row) => this.selection.select(row));
+  }
 }

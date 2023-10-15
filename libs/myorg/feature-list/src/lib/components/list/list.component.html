@@ -2,6 +2,28 @@
   <div class="flex-grow overflow-auto">
     <div class="m-auto max-w-[70%]">
       <table cdk-table [dataSource]="elementList">
+        <ng-container cdkColumnDef="select">
+          <th
+            cdk-header-cell
+            *cdkHeaderCellDef
+            class="bg-emerald-200"
+          >
+            <mat-checkbox
+              (change)="toggleAllSelection()"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [color]="'primary'"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+            />
+          </th>
+          <td cdk-cell *cdkCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [color]="'primary'"
+              [checked]="selection.isSelected(row)"
+            />
+          </td>
+          </ng-container>
         <ng-container cdkColumnDef="position">
           <th
             cdk-header-cell
@@ -57,7 +79,7 @@
         <tr
           cdk-header-row
           *cdkHeaderRowDef="displayedColumns; sticky: true"
-          class="border-solid border-b border-[silver]"
+          class="border-solid border-b"
         ></tr>
         <tr
           cdk-row

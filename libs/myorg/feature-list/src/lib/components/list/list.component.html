@@ -3,17 +3,14 @@
     <div class="m-auto max-w-[70%]">
       <table cdk-table [dataSource]="elementList">
         <ng-container cdkColumnDef="select">
-          <th
-            cdk-header-cell
-            *cdkHeaderCellDef
-            class="bg-emerald-200"
-          >
+          <th cdk-header-cell *cdkHeaderCellDef class="bg-emerald-200">
             <mat-checkbox
               (change)="toggleAllSelection()"
               [checked]="selection.hasValue() && isAllSelected()"
               [color]="'primary'"
               [indeterminate]="selection.hasValue() && !isAllSelected()"
-            />
+            >
+            </mat-checkbox>
           </th>
           <td cdk-cell *cdkCellDef="let row">
             <mat-checkbox
@@ -21,9 +18,10 @@
               (change)="$event ? selection.toggle(row) : null"
               [color]="'primary'"
               [checked]="selection.isSelected(row)"
-            />
+            >
+            </mat-checkbox>
           </td>
-          </ng-container>
+        </ng-container>
         <ng-container cdkColumnDef="position">
           <th
             cdk-header-cell

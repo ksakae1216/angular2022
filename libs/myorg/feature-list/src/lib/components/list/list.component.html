@@ -1,4 +1,8 @@
-<div class="flex h-full overflow-hidden justify-center">
+<div
+  class="flex h-full overflow-hidden justify-center"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+>
   <div class="flex-grow overflow-auto">
     <div class="m-auto max-w-[70%]">
       <table cdk-table [dataSource]="elementList">
@@ -103,3 +107,35 @@
     </div>
   </div>
 </div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isSelectedOneOrMore()"
+  [cdkConnectedOverlayPositions]="overlayPosition"
+>
+  <div
+    class="w-[400px] overflow-hidden rounded-md border border-solid border-default/80 bg-white py-1 px-4 shadow-menu shadow-default/20"
+  >
+    <div class="flex items-center space-x-2">
+      <div class="w-48 flex-auto overflow-auto">
+        <p class="!my-2">{{ selectedRows }}件選択しています</p>
+      </div>
+      <div class="flex flex-none flex-nowrap">
+        <div>
+          <button
+            mat-icon-button
+            matTooltip="削除"
+            aria-label="削除"
+            (click)="deleteData()"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button icon="close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

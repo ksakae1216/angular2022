@@ -89,8 +89,5 @@
   },
   "msw": {
     "workerDirectory": "apps/myorg/src"
-  },
-  "engines": {
-    "node": "18.10.0"
   }
 }

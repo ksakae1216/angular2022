@@ -1,5 +1,11 @@
 steps:
 
+  # Node.js バージョン 16.14.0 のイメージをプルする
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'pull'
+      - 'node:16.14.0'
+
   # Install node packages
   - name: 'gcr.io/cloud-builders/yarn'
     args: [ 'install' ]

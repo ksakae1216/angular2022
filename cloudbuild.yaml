@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+    - 'build'
+    - '--build-arg=NODE_VERSION=18.10.0'
+    - '--tag=gcr.io/17551150001/yarn:node-18.10.0'
+    - '.'
+
+  # Install node packages
+  - name: 'gcr.io/17551150001/yarn:node-18.10.0'
+    args: [ 'install' ]
+
+  # Build productive files
+  - name: 'gcr.io/17551150001/yarn:node-18.10.0'
+    args: [ 'run', 'build', '--prod' ]
+
+  # Deploy to google cloud app egnine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', '--version=prod']

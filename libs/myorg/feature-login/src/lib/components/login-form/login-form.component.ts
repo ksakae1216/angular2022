@@ -45,7 +45,7 @@ export class LoginFormComponent {
     }
 
     if (this.loginIdForm.hasError('required')) {
-      return 'ログインIDを入力してください';
+      return 'ログインIDを入力してください!';
     } else if (
       this.loginIdForm.hasError('minlength') ||
       this.loginIdForm.hasError('maxlength')

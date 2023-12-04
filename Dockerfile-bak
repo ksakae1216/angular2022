@@ -1,0 +1,38 @@
+# ARG NODE_VERSION=latest
+# FROM node:${NODE_VERSION}
+# ENTRYPOINT ["yarn"]
+# Expose 80
+
+# FROM node:18.10.0-alpine
+
+# WORKDIR .
+
+# COPY . .
+
+# Expose 80
+
+# RUN apk update && apk add python3 make g++ gcc
+
+# RUN yarn config set cache-enable true
+
+# RUN yarn install
+
+# CMD ["yarn", "ng", "serve", "--port", "8080"] &
+
+# FROM node:18.10.0-slim
+FROM ubuntu:latest
+
+WORKDIR .
+
+COPY . .
+
+Expose 80
+
+RUN apt-get update && apt-get install python3 make g++ gcc
+# RUN apt-get update || : && apt-get install python -y
+
+# RUN yarn config set cache-enable true
+
+# RUN yarn install
+
+# CMD ["yarn", "ng", "serve", "--port", "8080"] &

@@ -1,0 +1,37 @@
+name: Cloud Run (Preview)
+
+on: pull_request
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Find Comment
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: 'Preview'
+
+      - name: Create Preview URL
+        id: preview-url
+        run: echo "::set-output name=value::https:${{ github.event.pull_request.number }}//-dot-static-retina-404402.de.r.appspot.com"
+
+      - name: Get datetime for now
+        id: datetime
+        run: echo "::set-output name=value::$(date)"
+        env:
+          TZ: Asia/Tokyo
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Visit the :eyes: **Preview** :eyes: for this PR (updated for commit ${{ github.event.pull_request.head.sha }}):
+            <${{ steps.preview-url.outputs.value }}>
+            <sub>(:fire: updated at ${{ steps.datetime.outputs.value }})</sub>
+          edit-mode: replace

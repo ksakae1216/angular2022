@@ -14,6 +14,6 @@ steps:
   - name: 'gcr.io/17551150001/yarn:node-18.10.0'
     args: [ 'run', 'build', '--prod' ]
 
-  # Deploy to google cloud app egnine
+  # Deploy to google cloud app egnine test
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', '--version=${_PR_NUMBER}', '--no-promote']

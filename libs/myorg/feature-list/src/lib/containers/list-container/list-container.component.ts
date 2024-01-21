@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { provideComponentStore } from '@ngrx/component-store';
@@ -8,17 +8,17 @@ import { ListContainerStore } from './list-container.store';
 @Component({
   selector: 'myorg-list-container',
   standalone: true,
-  imports: [NgIf, AsyncPipe, ListComponent],
+  imports: [AsyncPipe, ListComponent],
   template: `
-    <ng-container *ngIf="vm$ | async as vm">
+    @if (vm$ | async; as vm) {
       <myorg-list
         [loading]="vm.loading"
         [elementList]="vm.elementList"
         [paging]="vm.paging"
         (pageAction)="pageAction($event)"
-       />
-    </ng-container>
-  `,
+        />
+    }
+    `,
   styles: [],
   providers: [provideComponentStore(ListContainerStore)],
   changeDetection: ChangeDetectionStrategy.OnPush,

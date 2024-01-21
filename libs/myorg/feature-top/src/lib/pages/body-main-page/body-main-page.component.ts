@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'myorg-body-main-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './body-main-page.component.html',
 })
 export class BodyMainPageComponent {}

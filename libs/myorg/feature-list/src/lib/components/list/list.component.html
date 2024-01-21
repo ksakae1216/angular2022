@@ -89,21 +89,19 @@
           class="h-8 hover:bg-slate-100"
         ></tr>
       </table>
-      <mat-paginator
-        *ngIf="!loading"
-        class="mt-4"
-        [length]="paging?.totalCount"
-        [pageIndex]="paging?.pageIndex"
-        [pageSize]="paging?.pageSize"
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="pageAction.emit($event)"
-        aria-label="Select page"
-      >
-      </mat-paginator>
-
-      <ng-container *ngIf="loading">
-        <mat-spinner class="m-auto mt-16"></mat-spinner>
-      </ng-container>
+      @if (!loading) {
+        <mat-paginator
+          class="mt-4"
+          [length]="paging?.totalCount"
+          [pageIndex]="paging?.pageIndex"
+          [pageSize]="paging?.pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageAction.emit($event)"
+          aria-label="Select page"
+        />
+      } @else if (loading) {
+        <mat-spinner class="m-auto mt-16" />
+      }
     </div>
   </div>
 </div>

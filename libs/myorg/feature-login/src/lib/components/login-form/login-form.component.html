@@ -6,61 +6,67 @@
       class="m-auto"
       src="https://material.angular.io/assets/img/examples/shiba1.jpg"
       alt=""
-    />
+      />
   </div>
   <mat-card-title class="text-center p-6">ログイン</mat-card-title>
   <form [formGroup]="loginFormGroup" (submit)="submit()">
     <div class="flex flex-col items-center w-96">
-      <ng-container *ngIf="isLoginError"
-        ><span class="!text-[#f44336]"
+      @if (isLoginError) {
+        <span class="!text-[#f44336]"
           >ログインに失敗しました。</span
-        ></ng-container
-      >
-      <mat-form-field appearance="outline" class="w-80 my-6">
-        <input
-          matInput
-          type="text"
-          aria-label="ログインID"
-          placeholder="ログインID"
-          formControlName="loginId"
-          name="loginId"
-          autofocus
-        />
-        <mat-error *ngIf="loginIdForm?.invalid">{{
-          loginIdErrorMessage
-        }}</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-80 my-6">
-        <input
-          matInput
-          type="{{ passwordType }}"
-          aria-label="パスワード"
-          placeholder="パスワード"
-          formControlName="password"
-          name="password"
-          data-cy="password"
-        />
-        <mat-icon matSuffix (click)="toggleShowPassword()">{{
-          visibility_icon
-        }}</mat-icon>
-        <mat-error *ngIf="passwordForm?.invalid">{{
-          passwordErrorMessage
-        }}</mat-error>
-      </mat-form-field>
-      <div class="my-5">
-        <button
-          mat-raised-button
-          color="primary"
-          class="w-80 !h-14"
-          [disabled]="disabled"
-          type="submit"
-        >
-          <div class="flex">
-            ログイン
-            <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
-          </div>
-        </button>
+          >
+        }
+        <mat-form-field appearance="outline" class="w-80 my-6">
+          <input
+            matInput
+            type="text"
+            aria-label="ログインID"
+            placeholder="ログインID"
+            formControlName="loginId"
+            name="loginId"
+            autofocus
+            />
+          @if (loginIdForm?.invalid) {
+            <mat-error>{{
+              loginIdErrorMessage
+            }}</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-80 my-6">
+          <input
+            matInput
+            type="{{ passwordType }}"
+            aria-label="パスワード"
+            placeholder="パスワード"
+            formControlName="password"
+            name="password"
+            data-cy="password"
+            />
+          <mat-icon matSuffix (click)="toggleShowPassword()">{{
+            visibility_icon
+          }}</mat-icon>
+          @if (passwordForm?.invalid) {
+            <mat-error>{{
+              passwordErrorMessage
+            }}</mat-error>
+          }
+        </mat-form-field>
+        <div class="my-5">
+          <button
+            mat-raised-button
+            color="primary"
+            class="w-80 !h-14"
+            [disabled]="disabled"
+            type="submit"
+            >
+            <div class="flex">
+              ログイン
+              @if (loading) {
+                <mat-spinner diameter="20"></mat-spinner>
+              }
+            </div>
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
-</mat-card>
+    </form>
+  </mat-card>

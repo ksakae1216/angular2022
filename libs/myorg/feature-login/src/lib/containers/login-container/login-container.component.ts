@@ -4,13 +4,13 @@ import { LoginContainerStore } from './login-container.store';
 @Component({
   selector: 'myorg-login-container',
   template: `
-    <ng-container *ngIf="store$ | async as store">
+    @if (store$ | async; as store) {
       <myorg-login-form
         [requestStatus]="store.requestStatus"
         (login)="login($event)"
       ></myorg-login-form>
-    </ng-container>
-  `,
+    }
+    `,
   styles: [],
 })
 export class LoginContainerComponent {

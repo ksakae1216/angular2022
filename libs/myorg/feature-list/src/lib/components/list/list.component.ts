@@ -1,7 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { ConnectionPositionPair, OverlayModule } from '@angular/cdk/overlay';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -17,7 +17,6 @@ import { Paging } from '../../models/paging.model';
   selector: 'myorg-list',
   standalone: true,
   imports: [
-    CommonModule,
     CdkTableModule,
     OverlayModule,
     MatCheckboxModule,
@@ -25,8 +24,8 @@ import { Paging } from '../../models/paging.model';
     MatIconModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTooltipModule,
-  ],
+    MatTooltipModule
+],
   templateUrl: './list.component.html',
 })
 export class ListComponent {

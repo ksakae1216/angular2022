@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -9,11 +9,10 @@ import { BodySideNavItemComponent } from '../body-side-nav-item/body-side-nav-it
   standalone: true,
   templateUrl: './body-side-nav.component.html',
   imports: [
-    CommonModule,
     MatIconModule,
     RouterLink,
     RouterLinkActive,
-    BodySideNavItemComponent,
-  ],
+    BodySideNavItemComponent
+],
 })
 export class BodySideNavComponent {}

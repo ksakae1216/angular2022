@@ -6,10 +6,10 @@ import { HeaderContainerStore } from './header-right-container.store';
 @Component({
   selector: 'myorg-header-right-container',
   template: `
-    <ng-container *ngIf="vm$ | async as vm">
+    @if (vm$ | async; as vm) {
       <myorg-header-right></myorg-header-right>
-    </ng-container>
-  `,
+    }
+    `,
   standalone: true,
   styles: [],
   providers: [HeaderContainerStore],

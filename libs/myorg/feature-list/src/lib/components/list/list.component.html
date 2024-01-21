@@ -2,7 +2,7 @@
   class="flex h-full overflow-hidden justify-center"
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
-  >
+>
   <div class="flex-grow overflow-auto">
     <div class="m-auto max-w-[70%]">
       <table cdk-table [dataSource]="elementList">
@@ -13,7 +13,7 @@
               [checked]="selection.hasValue() && isAllSelected()"
               [color]="'primary'"
               [indeterminate]="selection.hasValue() && !isAllSelected()"
-              >
+            >
             </mat-checkbox>
           </th>
           <td cdk-cell *cdkCellDef="let row">
@@ -22,7 +22,7 @@
               (change)="$event ? selection.toggle(row) : null"
               [color]="'primary'"
               [checked]="selection.isSelected(row)"
-              >
+            >
             </mat-checkbox>
           </td>
         </ng-container>
@@ -31,7 +31,7 @@
             cdk-header-cell
             *cdkHeaderCellDef
             class="w-[10%] text-start bg-emerald-200"
-            >
+          >
             No.
           </th>
           <td cdk-cell *cdkCellDef="let element">
@@ -44,7 +44,7 @@
             cdk-header-cell
             *cdkHeaderCellDef
             class="w-[50%] text-start bg-emerald-200"
-            >
+          >
             Name
           </th>
           <td cdk-cell *cdkCellDef="let element">
@@ -57,7 +57,7 @@
             cdk-header-cell
             *cdkHeaderCellDef
             class="w-[30%] text-start bg-emerald-200"
-            >
+          >
             Weight
           </th>
           <td cdk-cell *cdkCellDef="let element">
@@ -70,7 +70,7 @@
             cdk-header-cell
             *cdkHeaderCellDef
             class="w-[10%] text-start bg-emerald-200"
-            >
+          >
             Symbol
           </th>
           <td cdk-cell *cdkCellDef="let element">
@@ -98,12 +98,9 @@
           [pageSizeOptions]="pageSizeOptions"
           (page)="pageAction.emit($event)"
           aria-label="Select page"
-          >
-        </mat-paginator>
-      }
-
-      @if (loading) {
-        <mat-spinner class="m-auto mt-16"></mat-spinner>
+        />
+      } @else if (loading) {
+        <mat-spinner class="m-auto mt-16" />
       }
     </div>
   </div>
@@ -114,10 +111,10 @@
   [cdkConnectedOverlayOrigin]="trigger"
   [cdkConnectedOverlayOpen]="isSelectedOneOrMore()"
   [cdkConnectedOverlayPositions]="overlayPosition"
-  >
+>
   <div
     class="w-[400px] overflow-hidden rounded-md border border-solid border-default/80 bg-white py-1 px-4 shadow-menu shadow-default/20"
-    >
+  >
     <div class="flex items-center space-x-2">
       <div class="w-48 flex-auto overflow-auto">
         <p class="!my-2">{{ selectedRows }}件選択しています</p>
@@ -129,7 +126,7 @@
             matTooltip="削除"
             aria-label="削除"
             (click)="deleteData()"
-            >
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </div>

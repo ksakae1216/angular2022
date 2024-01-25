@@ -5,23 +5,6 @@
   "sourceRoot": "libs/myorg/feature-top/src",
   "prefix": "myorg",
   "targets": {
-    "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/myorg/feature-top/ng-package.json",
-        "tailwindConfig": "libs/myorg/feature-top/tailwind.config.js"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/myorg/feature-top/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/myorg/feature-top/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

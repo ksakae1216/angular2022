@@ -6,15 +6,19 @@
   <div class="inline-flex flex-col w-32 mr-1" cdkMenu>
     <button class="example-menu-item" cdkMenuItem>
       <div
-        class="flex flex-col border-solid border-1 rounded-lg shadow-md border-red-400"
+        class="flex flex-col border-solid border-1 rounded-lg shadow-md border-red-400 bg-white"
       >
-        <div class="flex" name="settings">
+        <div class="flex hover:bg-slate-200" name="settings">
           <mat-icon>settings</mat-icon>
           <span class="flex items-center ml-2">設定</span>
         </div>
-        <div class="flex" name="dummy">
-          <mat-icon>settings</mat-icon>
-          <span class="flex items-center ml-2">dummy</span>
+        <div
+          class="flex hover:bg-slate-200"
+          name="dummy"
+          (click)="logout.emit()"
+        >
+          <mat-icon>logout</mat-icon>
+          <span class="flex items-center ml-2">ログアウト</span>
         </div>
       </div>
     </button>

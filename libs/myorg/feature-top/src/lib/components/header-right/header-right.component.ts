@@ -1,6 +1,6 @@
 import { CdkMenuModule } from '@angular/cdk/menu';
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -9,4 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [CdkMenuModule, MatIconModule],
   templateUrl: './header-right.component.html',
 })
-export class HeaderRightComponent {}
+export class HeaderRightComponent {
+  @Output() logout = new EventEmitter<void>();
+}

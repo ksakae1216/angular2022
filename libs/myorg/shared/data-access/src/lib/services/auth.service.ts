@@ -33,4 +33,8 @@ export class AuthService {
 
     return false;
   }
+
+  deleteCookie(name: string) {
+    this.cookieService.delete(name);
+  }
 }

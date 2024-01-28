@@ -1,19 +1,19 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { HeaderContainerComponent } from './header-right-container.component';
+import { HeaderRightContainerComponent } from './header-right-container.component';
 import { HeaderContainerStore } from './header-right-container.store';
 
-describe('HeaderContainerComponent', () => {
-  let component: HeaderContainerComponent;
-  let fixture: ComponentFixture<HeaderContainerComponent>;
+describe('HeaderRightContainerComponent', () => {
+  let component: HeaderRightContainerComponent;
+  let fixture: ComponentFixture<HeaderRightContainerComponent>;
   let componentStore: HeaderContainerStore;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [HeaderContainerComponent],
+      declarations: [HeaderRightContainerComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).overrideComponent(HeaderContainerComponent, {
+    }).overrideComponent(HeaderRightContainerComponent, {
       set: {
         providers: [
           {
@@ -30,7 +30,7 @@ describe('HeaderContainerComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderContainerComponent);
+    fixture = TestBed.createComponent(HeaderRightContainerComponent);
     component = fixture.componentInstance;
     componentStore = fixture.debugElement.injector.get(HeaderContainerStore);
 

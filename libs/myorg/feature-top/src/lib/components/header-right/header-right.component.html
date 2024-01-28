@@ -12,9 +12,9 @@
           <mat-icon>settings</mat-icon>
           <span class="flex items-center ml-2">設定</span>
         </div>
-        <div class="flex" name="dummy">
-          <mat-icon>settings</mat-icon>
-          <span class="flex items-center ml-2">dummy</span>
+        <div class="flex" name="dummy" (click)="logout.emit()">
+          <mat-icon>logout</mat-icon>
+          <span class="flex items-center ml-2">ログアウト</span>
         </div>
       </div>
     </button>

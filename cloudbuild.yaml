@@ -12,7 +12,7 @@ steps:
 
   # Build productive files
   - name: 'gcr.io/17551150001/yarn:node-20.9.0'
-    args: ['run', 'build', '--prod']
+    args: ['nx', 'run', 'myorg:build:development']
 
   # Deploy to google cloud app egnine
   - name: 'gcr.io/cloud-builders/gcloud'

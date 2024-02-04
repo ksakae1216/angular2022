@@ -1,19 +1,48 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  # Restore Cache
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['cp', 'gs://my-org_node_modules/node_modules.tar.gz', '/workspace/']
+
+  - name: 'ubuntu'
+    entrypoint: '/bin/bash'
     args:
-      - 'build'
-      - '--build-arg=NODE_VERSION=20.9.0'
-      - '--tag=gcr.io/17551150001/yarn:node-20.9.0'
-      - '.'
+      [
+        '-c',
+        'if [ -f /workspace/node_modules.tar.gz ]; then tar -xzf /workspace/node_modules.tar.gz -C /workspace && rm /workspace/node_modules.tar.gz; fi',
+      ]
 
   # Install node packages
-  - name: 'gcr.io/17551150001/yarn:node-20.9.0'
+  - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+    entrypoint: 'pnpm'
     args: ['install']
 
   # Build productive files
-  - name: 'gcr.io/17551150001/yarn:node-20.9.0'
+  - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+    entrypoint: 'pnpm'
     args: ['nx', 'run', 'myorg:build:development']
 
-  # Deploy to google cloud app egnine
+  # test
+  # - name: 'ubuntu'
+  #   entrypoint: '/bin/bash'
+  #   args: ['-c', 'rm -rf /workspace/workspace']
+
+  # Deploy to google cloud app engine
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', '--version=${_PR_NUMBER}', '--no-promote']
+
+  # Save Cache
+  - name: 'ubuntu'
+    entrypoint: '/bin/bash'
+    args:
+      [
+        '-c',
+        'tar -czf /workspace/node_modules.tar.gz -C /workspace node_modules',
+      ]
+
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      [
+        'cp',
+        '/workspace/node_modules.tar.gz',
+        'gs://my-org_node_modules/node_modules.tar.gz',
+      ]

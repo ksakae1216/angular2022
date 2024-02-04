@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  headers-polyfill: 3.2.5
-
 dependencies:
   '@angular/animations':
     specifier: 17.0.9

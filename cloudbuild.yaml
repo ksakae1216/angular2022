@@ -21,11 +21,6 @@ steps:
     entrypoint: 'pnpm'
     args: ['nx', 'run', 'myorg:build:development']
 
-  # test
-  # - name: 'ubuntu'
-  #   entrypoint: '/bin/bash'
-  #   args: ['-c', 'rm -rf /workspace/workspace']
-
   # Deploy to google cloud app engine
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', '--version=${_PR_NUMBER}', '--no-promote']

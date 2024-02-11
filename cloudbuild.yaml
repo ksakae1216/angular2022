@@ -1,9 +1,11 @@
 steps:
   # Restore Cache
   - name: 'gcr.io/cloud-builders/gsutil'
+    id: 'restore-node-modules'
     args: ['cp', 'gs://my-org_node_modules/node_modules.tar.gz', '/workspace/']
 
   - name: 'ubuntu'
+    id: 'uncompress-node-modules'
     entrypoint: '/bin/bash'
     args:
       [
@@ -13,17 +15,30 @@ steps:
 
   # Install node packages
   - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+    id: 'install-node-packages'
     entrypoint: 'pnpm'
     args: ['install']
 
-  # Build productive files
+  # Build Myorg
   - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+    id: 'build-myorg'
     entrypoint: 'pnpm'
     args: ['nx', 'run', 'myorg:build:development']
 
   # Deploy to google cloud app engine
   - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'deploy-app'
     args: ['app', 'deploy', '--version=${_PR_NUMBER}', '--no-promote']
+
+  # Delete old deploy versions
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'delete-old-versions'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud app versions list --format="value(version.id)" --sort-by="~version.createTime" |
+        grep -v '^prod$' | tail -n +6 | xargs -r gcloud app versions delete --quiet
 
   # Calculate pnpm-lock.yaml hash test
   - name: 'gcr.io/cloud-builders/gsutil'

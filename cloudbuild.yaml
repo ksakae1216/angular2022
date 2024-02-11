@@ -25,19 +25,28 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', '--version=${_PR_NUMBER}', '--no-promote']
 
+  # Calculate pnpm-lock.yaml hash test
+  - name: 'gcr.io/cloud-builders/gsutil'
+    id: 'calculate-pnpm-lock-hash'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        md5sum /workspace/pnpm-lock.yaml > /workspace/current_pnpm_lock_hash.txt
+        gsutil cp gs://my-org_node_modules/last_pnpm_lock_hash.txt /workspace/last_pnpm_lock_hash.txt
+
   # Save Cache
   - name: 'ubuntu'
+    id: 'save-node-modules'
     entrypoint: '/bin/bash'
     args:
-      [
-        '-c',
-        'tar -czf /workspace/node_modules.tar.gz -C /workspace node_modules',
-      ]
+      - '-c'
+      - |
+        if cmp -s /workspace/current_pnpm_lock_hash.txt /workspace/last_pnpm_lock_hash.txt; then
+          echo "pnpm-lock.yaml unchanged, skipping cache save."
+        else
+          tar -czf /workspace/node_modules.tar.gz -C /workspace node_modules
+          gsutil cp /workspace/node_modules.tar.gz gs://my-org_node_modules/node_modules.tar.gz
+          gsutil cp /workspace/current_pnpm_lock_hash.txt gs://my-org_node_modules/last_pnpm_lock_hash.txt
 
-  - name: 'gcr.io/cloud-builders/gsutil'
-    args:
-      [
-        'cp',
-        '/workspace/node_modules.tar.gz',
-        'gs://my-org_node_modules/node_modules.tar.gz',
-      ]
+        fi

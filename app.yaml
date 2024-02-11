@@ -1,6 +1,4 @@
-runtime: python27
-api_version: 1
-threadsafe: yes
+runtime: python39
 
 handlers:
   - url: /
@@ -8,13 +6,3 @@ handlers:
     upload: dist/apps/myorg/index.html
   - url: /
     static_dir: dist/apps/myorg
-
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE

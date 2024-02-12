@@ -6,3 +6,7 @@ src
 ^(.*/)?.*\.md$
 ^(.*/)?.*\.yaml$
 ^LICENSE
+.angular
+.nx
+.pnpm-store
+.vscode

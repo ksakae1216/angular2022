@@ -51,9 +51,9 @@ steps:
         gsutil cp gs://my-org_node_modules/last_pnpm_lock_hash.txt /workspace/last_pnpm_lock_hash.txt
 
   # Save Cache
-  - name: 'ubuntu'
+  - name: 'gcr.io/cloud-builders/gsutil'
     id: 'save-node-modules'
-    entrypoint: '/bin/bash'
+    entrypoint: 'bash'
     args:
       - '-c'
       - |

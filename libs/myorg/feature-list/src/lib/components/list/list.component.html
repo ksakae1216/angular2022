@@ -16,7 +16,7 @@
             >
             </mat-checkbox>
           </th>
-          <td cdk-cell *cdkCellDef="let row">
+          <td cdk-cell *cdkCellDef="let row" class="border-t border-black border-solid">
             <mat-checkbox
               (click)="$event.stopPropagation()"
               (change)="$event ? selection.toggle(row) : null"
@@ -30,11 +30,11 @@
           <th
             cdk-header-cell
             *cdkHeaderCellDef
-            class="w-[10%] text-start bg-emerald-200"
+            class="w-[10%] text-start bg-emerald-200 pl-1"
           >
             No.
           </th>
-          <td cdk-cell *cdkCellDef="let element">
+          <td cdk-cell *cdkCellDef="let element" class="pl-1">
             {{ element.position }}
           </td>
         </ng-container>
@@ -43,11 +43,11 @@
           <th
             cdk-header-cell
             *cdkHeaderCellDef
-            class="w-[50%] text-start bg-emerald-200"
+            class="w-[50%] text-start bg-emerald-200 pl-1"
           >
             Name
           </th>
-          <td cdk-cell *cdkCellDef="let element">
+          <td cdk-cell *cdkCellDef="let element" class="pl-1">
             {{ element.name }}
           </td>
         </ng-container>
@@ -56,11 +56,11 @@
           <th
             cdk-header-cell
             *cdkHeaderCellDef
-            class="w-[30%] text-start bg-emerald-200"
+            class="w-[30%] text-start bg-emerald-200 pl-1"
           >
             Weight
           </th>
-          <td cdk-cell *cdkCellDef="let element">
+          <td cdk-cell *cdkCellDef="let element" class="pl-1">
             {{ element.weight }}
           </td>
         </ng-container>
@@ -69,11 +69,11 @@
           <th
             cdk-header-cell
             *cdkHeaderCellDef
-            class="w-[10%] text-start bg-emerald-200"
+            class="w-[10%] text-start bg-emerald-200 pl-1"
           >
             Symbol
           </th>
-          <td cdk-cell *cdkCellDef="let element">
+          <td cdk-cell *cdkCellDef="let element" class="pl-1">
             {{ element.symbol }}
           </td>
         </ng-container>
@@ -81,12 +81,11 @@
         <tr
           cdk-header-row
           *cdkHeaderRowDef="displayedColumns; sticky: true"
-          class="border-solid border-b"
         ></tr>
         <tr
           cdk-row
           *cdkRowDef="let row; columns: displayedColumns"
-          class="h-8 hover:bg-slate-100"
+          class="h-8 hover:bg-slate-100 divide-y divide-slate-700"
         ></tr>
       </table>
       @if (!loading) {

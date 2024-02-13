@@ -16,7 +16,7 @@
             >
             </mat-checkbox>
           </th>
-          <td cdk-cell *cdkCellDef="let row">
+          <td cdk-cell *cdkCellDef="let row" class="border-t border-black border-solid">
             <mat-checkbox
               (click)="$event.stopPropagation()"
               (change)="$event ? selection.toggle(row) : null"
@@ -81,12 +81,11 @@
         <tr
           cdk-header-row
           *cdkHeaderRowDef="displayedColumns; sticky: true"
-          class="border-solid border-b"
         ></tr>
         <tr
           cdk-row
           *cdkRowDef="let row; columns: displayedColumns"
-          class="h-8 hover:bg-slate-100"
+          class="h-8 hover:bg-slate-100 divide-y divide-slate-700"
         ></tr>
       </table>
       @if (!loading) {

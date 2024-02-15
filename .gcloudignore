@@ -1,6 +1,4 @@
-e2e
 node_modules
-src
 ^(.*/)?\..*$
 ^(.*/)?.*\.json$
 ^(.*/)?.*\.md$
@@ -10,3 +8,14 @@ src
 .nx
 .pnpm-store
 .vscode
+.DS_Store
+.git
+apps
+cypress
+libs
+tools
+*.config.ts
+*.json
+*.md
+*.yaml
+*.log

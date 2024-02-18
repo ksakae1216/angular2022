@@ -25,6 +25,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'portal',
+        loadChildren: () =>
+          import('@myorg/myorg/feature-portal').then(
+            (m) => m.myorgFeaturePortalRoutes
+          ),
+      },
+      {
         path: 'list',
         loadChildren: () =>
           import('@myorg/myorg/feature-list').then(

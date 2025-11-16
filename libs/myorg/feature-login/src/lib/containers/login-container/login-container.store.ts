@@ -5,7 +5,8 @@ import {
   LoginService,
   RequestStatus,
 } from '@myorg/myorg/shared/data-access';
-import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { switchMap, tap } from 'rxjs';
 
 export interface LoginContainerState {

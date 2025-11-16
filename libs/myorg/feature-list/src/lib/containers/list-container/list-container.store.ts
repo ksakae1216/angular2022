@@ -5,8 +5,8 @@ import { ListService } from '@myorg/myorg/shared/data-access';
 import {
   ComponentStore,
   OnStoreInit,
-  tapResponse,
 } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { EMPTY, switchMap, tap } from 'rxjs';
 import { initCurrentPage, initPageSize, pageSizeOptions } from '../../consts';
 import { Paging } from '../../models/paging.model';

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,23 +10,17 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MyorgSharedApiModule.forRoot({
-      rootUrl: environment.apiUrl,
-    }),
-  ],
-  bootstrap: [AppComponent],
-  providers: [
-    CookieService,
-    { provide: MYORG_APP_CONFIG, useValue: environment },
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        MyorgSharedApiModule.forRoot({
+            rootUrl: environment.apiUrl,
+        })], providers: [
+        CookieService,
+        { provide: MYORG_APP_CONFIG, useValue: environment },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}

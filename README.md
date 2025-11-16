@@ -11,20 +11,20 @@ Angular の学びをまとめるリポジトリです。
 ## Deploy
 
 GCP の Cloud Build を利用しています。
-事前にローカルでビルドした Docker イメージを GCR にプッシュしておく必要があります。
+事前にローカルでビルドした Docker イメージを Artifact Registry にプッシュしておく必要があります。
 
 ```bash
 # gcloudにログイン
 gcloud auth login
 
-# docker認証
-gcloud auth configure-docker
+# Artifact Registry用のdocker認証
+gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 
 # docker build
-docker build -t gcr.io/{プロジェクトID}/pnpm:node-20.9.0 --platform linux/amd64 .
+docker build -t asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-20.9.0 --platform linux/amd64 --build-arg NODE_VERSION=20.9.0 .
 
 # push
-docker push gcr.io/{プロジェクトID}/pnpm:node-20.9.0
+docker push asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-20.9.0
 ```
 
 ## Login 方法

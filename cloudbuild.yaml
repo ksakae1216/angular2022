@@ -14,13 +14,13 @@ steps:
       ]
 
   # Install node packages
-  - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.9.0'
     id: 'install-node-packages'
     entrypoint: 'pnpm'
     args: ['install']
 
   # Build Myorg
-  - name: 'gcr.io/static-retina-404402/pnpm:node-20.9.0'
+  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.9.0'
     id: 'build-myorg'
     entrypoint: 'pnpm'
     args: ['nx', 'run', 'myorg:build:development']

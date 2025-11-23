@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/myorg",
         "index": "apps/myorg/src/index.html",
@@ -61,12 +63,15 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "buildTarget": "myorg:build:development"
+      },
       "configurations": {
         "production": {
-          "browserTarget": "myorg:build:production"
+          "buildTarget": "myorg:build:production"
         },
         "development": {
-          "browserTarget": "myorg:build:development"
+          "buildTarget": "myorg:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -74,18 +79,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "myorg:build"
+        "buildTarget": "myorg:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/myorg/**/*.ts", "apps/myorg/**/*.html"]
+        "lintFilePatterns": [
+          "apps/myorg/**/*.ts",
+          "apps/myorg/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/myorg"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/myorg"
+      ],
       "options": {
         "jestConfig": "apps/myorg/jest.config.ts",
         "passWithNoTests": true
@@ -94,11 +104,18 @@
     "esbuild": {
       "executor": "nx-ng-esbuild:esbuild",
       "options": {
-        "entryPoints": ["apps/myorg/src/main.ts"],
+        "entryPoints": [
+          "apps/myorg/src/main.ts"
+        ],
         "outdir": "dist/apps/myorg",
         "index": "apps/myorg/src/index.html",
-        "assets": ["apps/myorg/src/favicon.ico", "apps/myorg/src/assets"],
-        "styles": ["apps/myorg/src/styles.scss"],
+        "assets": [
+          "apps/myorg/src/favicon.ico",
+          "apps/myorg/src/assets"
+        ],
+        "styles": [
+          "apps/myorg/src/styles.scss"
+        ],
         "scripts": [],
         "tsconfig": "apps/myorg/tsconfig.app.json"
       }

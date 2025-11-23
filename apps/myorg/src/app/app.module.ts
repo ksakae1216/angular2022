@@ -10,12 +10,13 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-@NgModule({ declarations: [AppComponent],
+@NgModule({ declarations: [],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [BrowserModule,
         AppRoutingModule,
         RouterModule,
         BrowserAnimationsModule,
+        AppComponent,
         MyorgSharedApiModule.forRoot({
             rootUrl: environment.apiUrl,
         })], providers: [

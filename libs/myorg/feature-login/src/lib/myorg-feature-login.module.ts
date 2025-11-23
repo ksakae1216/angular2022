@@ -25,8 +25,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatInputModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    ...components,
+    ...containers,
+    ...pages,
   ],
-  declarations: [...components, ...containers, ...pages],
+  declarations: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [LoginContainerStore],
 })

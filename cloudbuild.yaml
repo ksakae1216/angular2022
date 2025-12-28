@@ -14,13 +14,13 @@ steps:
       ]
 
   # Install node packages
-  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.9.0'
+  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.11.1'
     id: 'install-node-packages'
     entrypoint: 'pnpm'
     args: ['install']
 
   # Build Myorg
-  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.9.0'
+  - name: 'asia-northeast1-docker.pkg.dev/${PROJECT_ID}/containers/pnpm:node-20.11.1'
     id: 'build-myorg'
     entrypoint: 'pnpm'
     args: ['nx', 'run', 'myorg:build:development']

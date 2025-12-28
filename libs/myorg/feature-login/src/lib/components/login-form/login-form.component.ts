@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,15 +19,14 @@ import { RequestStatus } from '@myorg/myorg/shared/data-access';
   selector: 'myorg-login-form',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatProgressSpinnerModule,
-  ],
+    MatProgressSpinnerModule
+],
   templateUrl: './login-form.component.html',
   styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

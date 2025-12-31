@@ -5,7 +5,8 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "moduleResolution": "bundler"
   },
   "exclude": [
     "src/test-setup.ts",
@@ -19,7 +20,5 @@
     "**/*.cy.tsx",
     "**/*.cy.jsx"
   ],
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

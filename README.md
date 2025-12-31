@@ -21,10 +21,10 @@ gcloud auth login
 gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 
 # docker build
-docker build -t asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-20.9.0 --platform linux/amd64 --build-arg NODE_VERSION=20.9.0 .
+docker build -t asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-22 --platform linux/amd64 --build-arg NODE_VERSION=22 .
 
 # push
-docker push asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-20.9.0
+docker push asia-northeast1-docker.pkg.dev/{プロジェクトID}/containers/pnpm:node-22
 ```
 
 ## Login 方法

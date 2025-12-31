@@ -4,13 +4,15 @@
   "projectType": "library",
   "sourceRoot": "libs/myorg/feature-login/src",
   "prefix": "myorg",
+  "tags": [],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/myorg/feature-login"],
       "options": {
         "jestConfig": "libs/myorg/feature-login/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "tsConfig": "libs/myorg/feature-login/tsconfig.spec.json"
       }
     },
     "lint": {
@@ -31,6 +33,5 @@
         "devServerTarget": "myorg:build"
       }
     }
-  },
-  "tags": []
+  }
 }

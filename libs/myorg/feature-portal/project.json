@@ -4,30 +4,15 @@
   "projectType": "library",
   "sourceRoot": "libs/myorg/feature-portal/src",
   "prefix": "myorg",
+  "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/myorg/feature-portal/ng-package.json",
-        "tailwindConfig": "libs/myorg/feature-portal/tailwind.config.js"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/myorg/feature-portal/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/myorg/feature-portal/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/myorg/feature-portal/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "tsConfig": "libs/myorg/feature-portal/tsconfig.spec.json"
       }
     },
     "lint": {
@@ -49,6 +34,5 @@
         "devServerTarget": "myorg:build"
       }
     }
-  },
-  "tags": []
+  }
 }
